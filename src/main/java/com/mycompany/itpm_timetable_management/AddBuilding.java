@@ -176,8 +176,8 @@ public class AddBuilding extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, username, password);
-            insert = conn.prepareStatement("INSERT INTO buildings(building_code,building_name)VALUES(?,?)");
+           conn = DriverManager.getConnection(DB_URL, username, password);
+           insert = conn.prepareStatement("INSERT INTO buildings(building_code,building_name)VALUES(?,?)");
             
             // insert data to relavant ? marks
             insert.setString(1, bId);
