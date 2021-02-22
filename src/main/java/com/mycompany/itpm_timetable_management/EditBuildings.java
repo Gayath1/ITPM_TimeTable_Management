@@ -60,7 +60,7 @@ public class EditBuildings extends javax.swing.JFrame {
 
         jTextField2.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gayath\\Desktop\\ERP\\updatebuild.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagesrc/updatebuild.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
