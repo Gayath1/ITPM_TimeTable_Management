@@ -5,17 +5,34 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Gayath
  */
 public class EditBuildings extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
+  
     /**
      * Creates new form EditBuildings
      */
     public EditBuildings() {
         initComponents();
+        currentBuildings();
     }
 
     /**
@@ -47,7 +64,6 @@ public class EditBuildings extends javax.swing.JFrame {
         jLabel2.setText("Select Building");
 
         jComboBox1.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.setSelectedIndex(-1);
 
         jLabel3.setFont(new java.awt.Font("Nexa Bold", 0, 36)); // NOI18N
@@ -60,7 +76,7 @@ public class EditBuildings extends javax.swing.JFrame {
 
         jTextField2.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagesrc/updatebuild.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\updatebuild.png")); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -71,11 +87,16 @@ public class EditBuildings extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gayath\\Desktop\\ERP\\close.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,9 +168,59 @@ public class EditBuildings extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Connection conn;
+    
+      private void currentBuildings(){
+           
+        try {   
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM buildings");
+            while(rs.next()){   
+                String name = rs.getString("building_code");
+                jComboBox1.addItem(name); 
+                
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
+        }              
+    }
+   
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        PreparedStatement editStmt;
+        String bId = jTextField1.getText();
+        String bName = jTextField2.getText();
+        String bcode = jComboBox1.getSelectedItem().toString();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            if (JOptionPane.showConfirmDialog(this,"This Will Update Building Details! Proceed?")==0){
+                editStmt = conn.prepareStatement("UPDATE buildings SET building_code = ?, building_name = ? WHERE building_code = ?;");                     
+                editStmt.setString(1, bId);
+                editStmt.setString(2, bName); 
+                editStmt.setString(3, bcode);
+                editStmt.executeUpdate();
+                //editStmt.execute();
+                JOptionPane.showMessageDialog(this, "Record Updated");                
+            }else{
+                JOptionPane.showMessageDialog(this, "Aborted!");                
+            }
+            
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
+        }      
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
