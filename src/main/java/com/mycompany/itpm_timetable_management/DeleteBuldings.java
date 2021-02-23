@@ -10,10 +10,12 @@ import static com.mycompany.itpm_timetable_management.EditBuildings.password;
 import static com.mycompany.itpm_timetable_management.EditBuildings.username;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,9 +48,9 @@ Connection conn;
             }
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
     /**
@@ -82,6 +84,11 @@ Connection conn;
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
         jButton2.setBorder(null);
@@ -147,6 +154,28 @@ Connection conn;
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PreparedStatement deleteStmt;
+        String bcode = jComboBox1.getSelectedItem().toString();
+         try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            if (JOptionPane.showConfirmDialog(this,"This Will Delete Selected Building! Proceed?")==0){
+                deleteStmt = conn.prepareStatement("DELETE FROM buildings WHERE building_code = ?;");         
+                deleteStmt.setString(1, bcode);
+                deleteStmt.execute();
+                JOptionPane.showMessageDialog(this, "Buiding Deleted");
+            }else{
+                JOptionPane.showMessageDialog(this, "Aborted!");                
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
