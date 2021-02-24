@@ -5,17 +5,33 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.EditBuildings.DB_URL;
+import static com.mycompany.itpm_timetable_management.EditBuildings.password;
+import static com.mycompany.itpm_timetable_management.EditBuildings.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gayath
  */
 public class AddRooms extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
     /**
      * Creates new form AddRooms
      */
     public AddRooms() {
         initComponents();
+        currentBuildings();
     }
 
     /**
@@ -76,6 +92,11 @@ public class AddRooms extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
         jButton2.setBorder(null);
@@ -162,6 +183,26 @@ public class AddRooms extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Connection conn;
+    
+      private void currentBuildings(){
+           
+        try {   
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM buildings");
+            while(rs.next()){   
+                String name = rs.getString("building_code");
+                jComboBox1.addItem(name); 
+                
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddRooms.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddRooms.class.getName()).log(Level.SEVERE, null, ex);
+        }              
+    }
+      
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
@@ -170,6 +211,31 @@ public class AddRooms extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PreparedStatement insert;
+        String RId = jTextField1.getText();
+        String RName = jTextField2.getText();
+        String bcode = jComboBox1.getSelectedItem().toString();
+        String Rtag = jComboBox2.getSelectedItem().toString();
+               
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            insert = conn.prepareStatement("INSERT INTO rooms(room_code,room_name,room_tag,room_building)VALUES(?,?,?,?)");         
+            insert.setString(1, RId);
+            insert.setString(2, RName);
+            insert.setString(4, bcode);
+            insert.setString(3, Rtag);
+            insert.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Record Added");                
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddRooms.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddRooms.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
