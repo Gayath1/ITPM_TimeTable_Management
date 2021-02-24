@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Gayath
  */
-public class ShowBuildings extends javax.swing.JFrame {
+public class ViewBuildings extends javax.swing.JFrame {
 
     
     static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
@@ -25,7 +25,7 @@ public class ShowBuildings extends javax.swing.JFrame {
     /**
      * Creates new form ShowBuildings
      */
-    public ShowBuildings() {
+    public ViewBuildings() {
         initComponents();
         building_table_update();
     }
@@ -46,7 +46,7 @@ public class ShowBuildings extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gayath\\Desktop\\ERP\\close.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -146,10 +146,10 @@ public class ShowBuildings extends javax.swing.JFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ShowBuildings.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ShowBuildings.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(EditBuildings.class.getName()).log(Level.SEVERE, null, ex);
+        }    
         
     
     }
@@ -176,20 +176,23 @@ public class ShowBuildings extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ShowBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ShowBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ShowBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ShowBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewBuildings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ShowBuildings().setVisible(true);
+                new ViewBuildings().setVisible(true);
             }
         });
     }

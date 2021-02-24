@@ -64,7 +64,7 @@ public class EditBuildings extends javax.swing.JFrame {
         jLabel2.setText("Select Building");
 
         jComboBox1.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
-        jComboBox1.setSelectedIndex(-1);
+        jComboBox1.setBorder(null);
 
         jLabel3.setFont(new java.awt.Font("Nexa Bold", 0, 36)); // NOI18N
         jLabel3.setText("Building Name");
