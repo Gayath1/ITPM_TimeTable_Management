@@ -234,7 +234,12 @@ public class AddRooms extends javax.swing.JFrame {
             Logger.getLogger(AddRooms.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(AddRooms.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        }
+        
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField1.requestFocus();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
