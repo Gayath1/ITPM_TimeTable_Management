@@ -99,7 +99,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagesrc/Add Rooms.png"/>
+              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\Add Rooms.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -112,7 +112,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagesrc/update rooms.png"/>
+              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\update rooms.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -125,7 +125,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagesrc/View rooms.png"/>
+              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\View rooms.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -138,7 +138,7 @@
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagesrc/clear.png"/>
+              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\clear.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -151,7 +151,7 @@
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagesrc/Dashboard.png"/>
+              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\Dashboard.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -160,6 +160,9 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

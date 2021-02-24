@@ -40,35 +40,40 @@ public class SystemRooms extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Nexa Bold", 0, 48)); // NOI18N
         jLabel1.setText("Rooms Dashboard");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagesrc/Add Rooms.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Add Rooms.png")); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagesrc/update rooms.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\update rooms.png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagesrc/View rooms.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\View rooms.png")); // NOI18N
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setFocusPainted(false);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagesrc/clear.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\clear.png")); // NOI18N
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setFocusPainted(false);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagesrc/Dashboard.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Dashboard.png")); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
         jButton5.setFocusPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,6 +131,12 @@ public class SystemRooms extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        new LocationDashboard().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
