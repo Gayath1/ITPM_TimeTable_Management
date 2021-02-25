@@ -43,47 +43,47 @@ public class LecturerStatistics extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, username, password);
             ResultSet totalLectureCount = conn.createStatement().executeQuery("SELECT count(DISTINCT Lecturer_code) FROM lecturers");  // lecturer count
-            //ResultSet totalProfCount = conn.createStatement().executeQuery("SELECT count(id) FROM lecturer WHERE level = '1-Professor' "); // professor
-            //ResultSet totalAssProfCount = conn.createStatement().executeQuery("SELECT count(id) FROM lecturer WHERE level = '2-Assisstant Professor' "); // assisstant professor
-            //ResultSet totalHGCount = conn.createStatement().executeQuery("SELECT count(id) FROM lecturer WHERE level = '3-Senior Lecturer(HG)' "); // HG
-            //ResultSet totalSenLecCount = conn.createStatement().executeQuery("SELECT count(id) FROM lecturer WHERE level = '4-Senior Lecturer' "); // Senior Lec
-            //ResultSet totalLecCount = conn.createStatement().executeQuery("SELECT count(id) FROM lecturer WHERE level = '5-Lecturer' "); // Lecturer
-            //ResultSet totalAssLecCount = conn.createStatement().executeQuery("SELECT count(id) FROM lecturer WHERE level = '6-Assisstant Lecturer' "); // Lecturer
-            //ResultSet totalInsCount = conn.createStatement().executeQuery("SELECT count(id) FROM lecturer WHERE level = '7-Instructors' "); //instructors
+            ResultSet totalProfCount = conn.createStatement().executeQuery("SELECT count(Lecturer_code) FROM lecturers WHERE Lecturer_level = '1' "); // professor
+            ResultSet totalAssProfCount = conn.createStatement().executeQuery("SELECT count(Lecturer_code) FROM lecturers WHERE Lecturer_level = '2' "); // assisstant professor
+            ResultSet totalHGCount = conn.createStatement().executeQuery("SELECT count(Lecturer_code) FROM lecturers WHERE Lecturer_level = '3' "); // HG
+            ResultSet totalSenLecCount = conn.createStatement().executeQuery("SELECT count(Lecturer_code) FROM lecturers WHERE Lecturer_level = '4' "); // Senior Lec
+            ResultSet totalLecCount = conn.createStatement().executeQuery("SELECT count(Lecturer_code) FROM lecturers WHERE Lecturer_level = '5-Lecturer' "); // Lecturer
+            ResultSet totalAssLecCount = conn.createStatement().executeQuery("SELECT count(Lecturer_code) FROM lecturers WHERE Lecturer_level = '6' "); // Lecturer
+            ResultSet totalInsCount = conn.createStatement().executeQuery("SELECT count(Lecturer_code) FROM lecturers WHERE Lecturer_level = '7' "); //instructors
             
             
             while(totalLectureCount.next()){
                 String result = totalLectureCount.getString(1);
                 jLabel2.setText(result);
             }
-            /*while(totalProfCount.next()){
+            while(totalProfCount.next()){
                 String result = totalProfCount.getString(1);
-                JLabel_numberOfProfessors.setText(result);
+                jLabel5.setText(result);
             }
             while(totalAssProfCount.next()){
                 String result = totalAssProfCount.getString(1);
-                JLabel_numberOfAssisstantProfs.setText(result);
+                jLabel7.setText(result);
             }
             while(totalHGCount.next()){
                 String result = totalHGCount.getString(1);
-                JLabel_numberOfHGLecs.setText(result);
+                jLabel9.setText(result);
             }
             while(totalSenLecCount.next()){
                 String result = totalSenLecCount.getString(1);
-                JLabel_numberOfSenLecs.setText(result);
+                jLabel11.setText(result);
             }
             while(totalLecCount.next()){
                 String result = totalLecCount.getString(1);
-                JLabel_numberOfLecs.setText(result);
+                jLabel13.setText(result);
             }
             while(totalAssLecCount.next()){
                 String result = totalAssLecCount.getString(1);
-                JLabel_numberOfAssistantLecs.setText(result);
+                jLabel15.setText(result);
             }
             while(totalInsCount.next()){
                 String result = totalInsCount.getString(1);
-                JLabel_numberOfIns.setText(result);
-            }*/
+                jLabel17.setText(result);
+            }
     
         }catch (ClassNotFoundException ex) {
             Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,6 +106,20 @@ public class LecturerStatistics extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,22 +144,90 @@ public class LecturerStatistics extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
+        jLabel4.setText("Number of Professor");
+
+        jLabel5.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel6.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
+        jLabel6.setText("Number of Assistant Professor");
+
+        jLabel7.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel8.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
+        jLabel8.setText("Number of Senior Lecturers (HG)");
+
+        jLabel9.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel10.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
+        jLabel10.setText("Number of Senior Lecturers");
+
+        jLabel11.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel12.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
+        jLabel12.setText("Number of Lecturers");
+
+        jLabel13.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel14.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
+        jLabel14.setText("Number of Assisstant Lecturers");
+
+        jLabel15.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel16.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
+        jLabel16.setText("Number of Assisstant Lecturers");
+
+        jLabel17.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(374, 374, 374)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(33, 33, 33))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel4)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,13 +236,59 @@ public class LecturerStatistics extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jButton1))
-                .addGap(141, 141, 141)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel1))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel4)))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel6)))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel1)))
-                .addContainerGap(257, Short.MAX_VALUE))
+                        .addComponent(jLabel8)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel12)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(22, 22, 22))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,8 +349,22 @@ public class LecturerStatistics extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
