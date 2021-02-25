@@ -30,7 +30,7 @@ public class ViewRooms extends javax.swing.JFrame {
      */
     public ViewRooms() {
         initComponents();
-        room_table_update();
+        room_table();
     }
 
     /**
@@ -129,7 +129,7 @@ public class ViewRooms extends javax.swing.JFrame {
      Connection conn;
     PreparedStatement view;
     
-    private void room_table_update(){
+    private void room_table(){
         
         int count;
         
