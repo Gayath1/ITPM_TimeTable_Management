@@ -5,17 +5,32 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Gayath
  */
 public class ViewRooms extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
     /**
      * Creates new form ViewRooms
      */
     public ViewRooms() {
         initComponents();
+        room_table_update();
     }
 
     /**
@@ -110,6 +125,48 @@ public class ViewRooms extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+     Connection conn;
+    PreparedStatement view;
+    
+    private void room_table_update(){
+        
+        int count;
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            view = conn.prepareStatement("SELECT * FROM rooms");
+            
+            ResultSet rs = view.executeQuery();
+            ResultSetMetaData rss = rs.getMetaData();
+            
+            count = rss.getColumnCount();
+            
+            DefaultTableModel df = (DefaultTableModel)jTable1.getModel();
+            df.setRowCount(0);
+            
+            while(rs.next()){
+            
+                Vector v1 = new Vector();
+                for(int i=1; i<=count; i++){
+                    v1.add(rs.getString("room_code"));
+                    v1.add(rs.getString("room_name"));
+                    v1.add(rs.getString("room_tag"));
+                    v1.add(rs.getString("room_building"));
+                }
+                df.addRow(v1);
+            }
+            
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ViewRooms.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewRooms.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
