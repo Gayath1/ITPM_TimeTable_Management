@@ -5,19 +5,74 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.DeleteBuldings.DB_URL;
+import static com.mycompany.itpm_timetable_management.DeleteBuldings.password;
+import static com.mycompany.itpm_timetable_management.DeleteBuldings.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gayath
  */
 public class EditRooms extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
     /**
      * Creates new form EditRooms
      */
     public EditRooms() {
         initComponents();
+        currentRoom();
+        currentBuildings();
     }
 
+    Connection conn;
+
+    private void currentRoom(){
+           
+        try {    
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM rooms");              
+            while(rs.next()){     
+                String name = rs.getString("room_code");
+                jComboBox1.addItem(name);;
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
+    private void currentBuildings(){
+           
+        try {    
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM buildings");              
+            while(rs.next()){     
+                String name = rs.getString("building_code");
+                jComboBox3.addItem(name);;
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EditRooms.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditRooms.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,6 +98,8 @@ public class EditRooms extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1400, 749));
 
         jComboBox1.setFont(new java.awt.Font("Nexa Bold", 0, 14)); // NOI18N
 
@@ -83,12 +140,22 @@ public class EditRooms extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,11 +228,11 @@ public class EditRooms extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1193, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
         );
 
         pack();
@@ -174,6 +241,43 @@ public class EditRooms extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PreparedStatement editStmt;
+        String rcode = jComboBox1.getSelectedItem().toString();
+        String bcode = jComboBox3.getSelectedItem().toString();
+        String rtag = jComboBox2.getSelectedItem().toString();
+        String room_code = jTextField1.getText();
+        String room_name = jTextField2.getText();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            if (JOptionPane.showConfirmDialog(this,"This Will Update Room Details! Proceed?")==0){
+                editStmt = conn.prepareStatement("UPDATE rooms SET room_code = ?, room_name = ?, room_tag = ?, room_building = ? WHERE room_code = ?;");                     
+                editStmt.setString(1,room_code);
+                editStmt.setString(2,room_name);
+                editStmt.setString(3,rtag);
+                editStmt.setString(4,bcode);
+                editStmt.setString(5,rcode);   
+                editStmt.executeUpdate();
+                //editStmt.execute();
+                JOptionPane.showMessageDialog(this, "Record Updated");                
+            }else{
+                JOptionPane.showMessageDialog(this, "Aborted!");                
+            }
+            
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EditRooms.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditRooms.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
