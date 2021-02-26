@@ -86,9 +86,9 @@ public class LecturerStatistics extends javax.swing.JFrame {
             }
     
         }catch (ClassNotFoundException ex) {
-            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LecturerStatistics.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LecturerStatistics.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
     }

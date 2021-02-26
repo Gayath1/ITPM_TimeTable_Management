@@ -5,19 +5,104 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.LecturerStatistics.DB_URL;
+import static com.mycompany.itpm_timetable_management.LecturerStatistics.password;
+import static com.mycompany.itpm_timetable_management.LecturerStatistics.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Gayath
  */
 public class SubjectStatistics extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
+    
     /**
      * Creates new form SubjectStatistics
      */
     public SubjectStatistics() {
         initComponents();
+        showDetails();
     }
 
+    Connection conn;
+    
+    private void showDetails(){
+    
+        
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet totalSubjects = conn.createStatement().executeQuery("SELECT count(DISTINCT subject_code) FROM subject");
+            ResultSet totalLectures = conn.createStatement().executeQuery("SELECT sum(lec) FROM subject");
+            ResultSet totalLabs = conn.createStatement().executeQuery("SELECT sum(lab) FROM subject");
+            ResultSet totalTutes = conn.createStatement().executeQuery("SELECT sum(tute) FROM subject");
+            ResultSet totalEvals = conn.createStatement().executeQuery("SELECT sum(eval) FROM subject");
+            ResultSet totalSessions = conn.createStatement().executeQuery("SELECT count(DISTINCT subject_code) FROM subject");
+            ResultSet totalConSessions = conn.createStatement().executeQuery("SELECT count(DISTINCT id) FROM consecutivesessions");
+            ResultSet totalProgramms = conn.createStatement().executeQuery("SELECT count(Program) FROM program");
+            
+            
+            while(totalSubjects.next()){
+                String totalSubject = totalSubjects.getString(1);
+                jLabel3.setText(totalSubject);
+            }
+            
+            while(totalLectures.next()){
+                String totalLecture = totalLectures.getString(1);
+                jLabel5.setText(totalLecture);
+            }
+            
+            while(totalLabs.next()){
+                String totalLab = totalLabs.getString(1);
+                jLabel7.setText(totalLab);
+            }
+            
+            while(totalTutes.next()){
+                String totalTute = totalTutes.getString(1);
+                jLabel9.setText(totalTute);
+            }
+            
+            while(totalEvals.next()){
+                String totalEval = totalEvals.getString(1);
+                jLabel11.setText(totalEval);
+            }
+            
+            while(totalSessions.next()){
+                String totalSession = totalSessions.getString(1);
+                jLabel13.setText(totalSession);
+            }
+            
+            while(totalConSessions.next()){
+                String totalConSession = totalConSessions.getString(1);
+                jLabel15.setText(totalConSession);
+            }
+            
+            while(totalProgramms.next()){
+                String totalProgram = totalProgramms.getString(1);
+                jLabel17.setText(totalProgram);
+            }
+            
+            
+            
+            
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(SubjectStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +130,7 @@ public class SubjectStatistics extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +185,17 @@ public class SubjectStatistics extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
         jLabel17.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jButton1.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,17 +229,24 @@ public class SubjectStatistics extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(394, 394, 394))
+                .addGap(265, 265, 265)
+                .addComponent(jButton1)
+                .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jButton1)))
                 .addGap(73, 73, 73)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,7 +292,7 @@ public class SubjectStatistics extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel10)))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,6 +308,11 @@ public class SubjectStatistics extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +350,7 @@ public class SubjectStatistics extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
