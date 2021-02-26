@@ -5,19 +5,66 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.SubjectStatistics.DB_URL;
+import static com.mycompany.itpm_timetable_management.SubjectStatistics.password;
+import static com.mycompany.itpm_timetable_management.SubjectStatistics.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Gayath
  */
 public class StudentStatistics extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
     /**
      * Creates new form StudentStatistics
      */
     public StudentStatistics() {
         initComponents();
+        ShowDetails();
     }
 
+    Connection conn;
+    
+    private void ShowDetails(){
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet mainGroups = conn.createStatement().executeQuery("SELECT count(DISTINCT id) FROM groupids"); // main group count
+            ResultSet subGroups = conn.createStatement().executeQuery("SELECT count(DISTINCT id) FROM subgroupids"); // sub group count
+            ResultSet studentCount = conn.createStatement().executeQuery("SELECT SUM(stdcount) FROM session"); // student count
+            
+            while(mainGroups.next()){
+                String mainGroupCount = mainGroups.getString(1);
+                jLabel3.setText(mainGroupCount);
+            }
+            while(subGroups.next()){
+                String subGroupCount = subGroups.getString(1);
+                jLabel5.setText(subGroupCount);
+            }
+            while(studentCount.next()){
+                String studentsCount = studentCount.getString(1);
+                jLabel7.setText(studentsCount);
+            }
+            
+            
+            
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(SubjectStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,6 +115,11 @@ public class StudentStatistics extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,6 +179,12 @@ public class StudentStatistics extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new SystemStatistics().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
