@@ -5,19 +5,58 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.EditRooms.DB_URL;
+import static com.mycompany.itpm_timetable_management.EditRooms.password;
+import static com.mycompany.itpm_timetable_management.EditRooms.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Gayath
  */
 public class SearchSession extends javax.swing.JFrame {
-
+    
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
     /**
      * Creates new form SearchSession
      */
     public SearchSession() {
         initComponents();
+        currentLecturer();
     }
 
+     Connection conn;
+     PreparedStatement show;
+
+    private void currentLecturer(){
+           
+        try {    
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT Lecturer_name FROM lecturers");              
+            while(rs.next()){     
+                String name = rs.getString("Lecturer_name");
+                jComboBox1.addItem(name);;
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SearchSession.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchSession.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,7 +75,6 @@ public class SearchSession extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +91,11 @@ public class SearchSession extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -90,12 +133,11 @@ public class SearchSession extends javax.swing.JFrame {
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setFocusPainted(false);
-
-        jButton4.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\show all.png")); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setFocusPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,10 +164,8 @@ public class SearchSession extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(92, 92, 92))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(192, 192, 192)
+                .addGap(446, 446, 446)
                 .addComponent(jButton3)
-                .addGap(109, 109, 109)
-                .addComponent(jButton4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,9 +187,7 @@ public class SearchSession extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(jButton3)
                 .addContainerGap())
         );
 
@@ -171,6 +209,82 @@ public class SearchSession extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int c;
+            
+            
+            String lecturer = (String)jComboBox1.getSelectedItem();
+            String column="";
+             try {
+            
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, username, password);
+
+                show = conn.prepareStatement("select * from session where lecturers = '"+lecturer+"'");
+                
+                ResultSet rs = show.executeQuery();
+                ResultSetMetaData Rss = rs.getMetaData();
+                c=Rss.getColumnCount();
+                
+                DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+                Df.setRowCount(0);
+                
+                while(rs.next()){
+                    Vector v = new Vector();
+                    
+                    for(int a=1;a<=c;a++){
+                        v.add(rs.getString("id"));
+                        v.add(rs.getString("subject"));  
+                        v.add(rs.getString("subcode")); 
+                        v.add(rs.getString("lecturers"));
+                        v.add(rs.getString("tags"));
+                        v.add(rs.getString("groups"));    
+                        v.add(rs.getString("hours"));
+                        v.add(rs.getString("stdcount"));                     
+                    }
+                    
+                    Df.addRow(v);
+                }
+
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(SearchSession.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (SQLException ex) {
+                Logger.getLogger(SearchSession.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int column = 0;
+        int row = jTable1.getSelectedRow();
+        String value = jTable1.getModel().getValueAt(row, column).toString();
+        
+        Connection conn;
+        PreparedStatement delete;
+        
+
+        try {
+            
+            int dialogres = JOptionPane.showConfirmDialog(null, "Do you want to remove Session?","Warning",JOptionPane.YES_NO_OPTION);
+            if(dialogres == JOptionPane.YES_OPTION){
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, username, password);
+
+                delete = conn.prepareStatement("delete from session where id= '"+value+"'");
+                delete.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, "Session (ID: "+ value +") deleted successfully!");
+
+                           
+            }
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(SearchSession.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,7 +325,6 @@ public class SearchSession extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
