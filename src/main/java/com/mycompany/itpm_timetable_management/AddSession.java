@@ -37,7 +37,7 @@ public class AddSession extends javax.swing.JFrame {
         getSubject();
         LectureList();
         getTag();
-        getGrpList();
+        
     }
 
     Connection conn;
@@ -118,7 +118,7 @@ public class AddSession extends javax.swing.JFrame {
 
                 while (rs.next())
                 {                             
-                   String name = rs.getString("subgroupid");
+                   String name = rs.getString("code");
                    jComboBox3.addItem(name);
                 }//end while
                 
@@ -130,7 +130,7 @@ public class AddSession extends javax.swing.JFrame {
 
                 while (rs.next())
                 {                             
-                   String name = rs.getString("groupid");
+                   String name = rs.getString("code");
                    jComboBox3.addItem(name);
                 }//end while
              }
@@ -191,11 +191,21 @@ public class AddSession extends javax.swing.JFrame {
         jLabel5.setText("Tag");
 
         jComboBox2.setFont(new java.awt.Font("Nexa Bold", 0, 14)); // NOI18N
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
         jLabel6.setText("Group ID");
 
         jComboBox3.setFont(new java.awt.Font("Nexa Bold", 0, 14)); // NOI18N
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
         jLabel7.setText("Total Students");
@@ -324,11 +334,11 @@ public class AddSession extends javax.swing.JFrame {
         
         PreparedStatement insert;
         
-        String subName = (String)jComboBox1.getSelectedItem( );
+        String subName = jComboBox1.getSelectedItem( ).toString();
         String code = jTextField1.getText();
-        String lecturersList = jList1.getSelectedValuesList().toString().replace("[", " ");
-        String tag = (String)jComboBox2.getSelectedItem();
-        String grpId = (String)jComboBox3.getSelectedItem();
+        String lecturersList = jList1.getSelectedValuesList().toString().replace("[", "");
+        String tag = jComboBox2.getSelectedItem().toString();
+        String grpId = jComboBox3.getSelectedItem().toString();
         String stdQty = jTextField2.getText();
         String durations = jTextField3.getText();
         
@@ -338,14 +348,16 @@ public class AddSession extends javax.swing.JFrame {
             
             //Insert data to db           
             Class.forName("com.mysql.jdbc.Driver");
-            insert = conn.prepareStatement("insert into session(lecturers,tags,groups,subject,subcode,hours,stdcount) values(?,?,?,?,?,?,?)");
-            insert.setString(1, lecturersList.toString().replace("]", " "));
-            insert.setString(2, tag);
-            insert.setString(3, grpId);
-            insert.setString(4, subName);
-            insert.setString(5, code);
-            insert.setString(6, durations);
-            insert.setString(7, stdQty);
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            insert = conn.prepareStatement("INSERT INTO session(subcode,`subject`,lecturers,tags,`groups`,stdcount,hours)VALUES(?,?,?,?,?,?,?)");
+            
+            insert.setString(3, lecturersList.toString().replace("]", ""));
+            insert.setString(4, tag);
+            insert.setString(5, grpId);
+            insert.setString(2, subName);
+            insert.setString(1, code);
+            insert.setString(7, durations);
+            insert.setString(6, stdQty);
             
             if(stdQty.isEmpty() || durations.isEmpty()){
                 JOptionPane.showMessageDialog(this, "All Fields Required!");                
@@ -356,7 +368,7 @@ public class AddSession extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Should be Numbers!"); 
                 }else{
                     
-                    insert.executeUpdate();            
+                    insert.executeUpdate();           
                     JOptionPane.showMessageDialog(this, "Session Created!");
 
                     jTextField2.setText("");
@@ -378,6 +390,17 @@ public class AddSession extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        jComboBox3.removeAllItems();
+        getGrpList();
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments

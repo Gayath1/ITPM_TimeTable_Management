@@ -8,6 +8,9 @@ package com.mycompany.itpm_timetable_management;
 import static com.mycompany.itpm_timetable_management.AddSession.DB_URL;
 import static com.mycompany.itpm_timetable_management.AddSession.password;
 import static com.mycompany.itpm_timetable_management.AddSession.username;
+import static com.mycompany.itpm_timetable_management.SearchSession.DB_URL;
+import static com.mycompany.itpm_timetable_management.SearchSession.password;
+import static com.mycompany.itpm_timetable_management.SearchSession.username;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -212,19 +215,19 @@ public class ViewSessions extends javax.swing.JFrame {
             if(dialogres == JOptionPane.YES_OPTION){
                 Class.forName("com.mysql.jdbc.Driver");
                 conn = DriverManager.getConnection(DB_URL, username, password);
-                delete = conn.prepareStatement("delete from session where subcode= '"+value+"'");
+
+                delete = conn.prepareStatement("delete from session where id= '"+value+"'");
                 delete.executeUpdate();
 
                 JOptionPane.showMessageDialog(this, "Session (ID: "+ value +") deleted successfully!");
 
                 new ViewSessions().setVisible(true);
-                dispose();            
+                dispose();         
             }
             
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ViewSessions.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (SQLException ex) {
-            Logger.getLogger(ViewSessions.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception e){
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

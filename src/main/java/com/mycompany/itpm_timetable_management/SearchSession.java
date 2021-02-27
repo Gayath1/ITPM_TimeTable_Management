@@ -8,6 +8,9 @@ package com.mycompany.itpm_timetable_management;
 import static com.mycompany.itpm_timetable_management.EditRooms.DB_URL;
 import static com.mycompany.itpm_timetable_management.EditRooms.password;
 import static com.mycompany.itpm_timetable_management.EditRooms.username;
+import static com.mycompany.itpm_timetable_management.ViewSessions.DB_URL;
+import static com.mycompany.itpm_timetable_management.ViewSessions.password;
+import static com.mycompany.itpm_timetable_management.ViewSessions.username;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -212,18 +215,19 @@ public class SearchSession extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int c;
+        
             
             
-            String lecturer = (String)jComboBox1.getSelectedItem();
-            String column="";
+            String lecturer = jComboBox1.getSelectedItem().toString();
+            
+             int c;
+                    
              try {
             
                 Class.forName("com.mysql.jdbc.Driver");
                 conn = DriverManager.getConnection(DB_URL, username, password);
 
-                show = conn.prepareStatement("select * from session where lecturers = '"+lecturer+"'");
-                
+                show = conn.prepareStatement("select * from session WHERE lecturers = '"+lecturer+"'");
                 ResultSet rs = show.executeQuery();
                 ResultSetMetaData Rss = rs.getMetaData();
                 c=Rss.getColumnCount();
@@ -242,7 +246,7 @@ public class SearchSession extends javax.swing.JFrame {
                         v.add(rs.getString("tags"));
                         v.add(rs.getString("groups"));    
                         v.add(rs.getString("hours"));
-                        v.add(rs.getString("stdcount"));                     
+                        v.add(rs.getString("stdcount"));                       
                     }
                     
                     Df.addRow(v);
