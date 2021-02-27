@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -136,6 +137,11 @@ public class ViewSessions extends javax.swing.JFrame {
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,6 +195,38 @@ public class ViewSessions extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int column = 0;
+        int row = jTable1.getSelectedRow();
+        String value = jTable1.getModel().getValueAt(row, column).toString();
+        
+        Connection conn;
+        PreparedStatement delete;
+        
+
+        try {
+            
+            int dialogres = JOptionPane.showConfirmDialog(null, "Do you want to remove Session?","Warning",JOptionPane.YES_NO_OPTION);
+            if(dialogres == JOptionPane.YES_OPTION){
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, username, password);
+                delete = conn.prepareStatement("delete from session where subcode= '"+value+"'");
+                delete.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, "Session (ID: "+ value +") deleted successfully!");
+
+                new ViewSessions().setVisible(true);
+                dispose();            
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ViewSessions.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
+            Logger.getLogger(ViewSessions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
