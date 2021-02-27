@@ -187,7 +187,7 @@ public class LecturerStatistics extends javax.swing.JFrame {
         jLabel15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel16.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
-        jLabel16.setText("Number of Assisstant Lecturers");
+        jLabel16.setText("Number of Instructors");
 
         jLabel17.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
