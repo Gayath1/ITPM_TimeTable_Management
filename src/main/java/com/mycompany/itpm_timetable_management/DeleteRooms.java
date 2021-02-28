@@ -167,7 +167,11 @@ public class DeleteRooms extends javax.swing.JFrame {
             if (JOptionPane.showConfirmDialog(this,"This Will Delete Selected Room! Proceed?")==0){
                 deleteStmt = conn.prepareStatement("DELETE FROM rooms WHERE room_code = ?;");         
                 deleteStmt.setString(1, rcode);
+                if(rcode.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");
+            }else{
                 deleteStmt.execute();
+                }
                 JOptionPane.showMessageDialog(this, "Room Deleted");
             }else{
                 JOptionPane.showMessageDialog(this, "Aborted!");                
