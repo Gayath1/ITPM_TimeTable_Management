@@ -277,8 +277,11 @@ public class SearchSession extends javax.swing.JFrame {
                 conn = DriverManager.getConnection(DB_URL, username, password);
 
                 delete = conn.prepareStatement("delete from session where id= '"+value+"'");
+                if(value.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Selected Fields Required!");
+            }else{
                 delete.executeUpdate();
-
+                }
                 JOptionPane.showMessageDialog(this, "Session (ID: "+ value +") deleted successfully!");
 
                            
