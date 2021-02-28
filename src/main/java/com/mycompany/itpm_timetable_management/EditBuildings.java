@@ -203,7 +203,12 @@ public class EditBuildings extends javax.swing.JFrame {
                 editStmt.setString(1, bId);
                 editStmt.setString(2, bName); 
                 editStmt.setString(3, bcode);
+                
+                if(bId.isEmpty() || bName.isEmpty() || bcode.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");
+            }else{
                 editStmt.executeUpdate();
+                }
                 //editStmt.execute();
                 JOptionPane.showMessageDialog(this, "Record Updated");                
             }else{
