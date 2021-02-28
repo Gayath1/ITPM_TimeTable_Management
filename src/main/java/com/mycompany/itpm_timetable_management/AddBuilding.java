@@ -183,6 +183,9 @@ public class AddBuilding extends javax.swing.JFrame {
             insert.setString(1, bId);
             insert.setString(2, bName);
             
+            if(bId.isEmpty() || bName.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");
+            }else{
             // execute the query
             insert.executeUpdate();
             
@@ -195,7 +198,7 @@ public class AddBuilding extends javax.swing.JFrame {
             
             // focus on first textbox after clearing
             jTextField1.requestFocus();
-            
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddBuilding.class.getName()).log(Level.SEVERE, null, ex);
             
