@@ -264,8 +264,12 @@ public class EditRooms extends javax.swing.JFrame {
                 editStmt.setString(2,room_name);
                 editStmt.setString(3,rtag);
                 editStmt.setString(4,bcode);
-                editStmt.setString(5,rcode);   
+                editStmt.setString(5,rcode);
+                if(room_code.isEmpty() || room_name.isEmpty() || rtag.isEmpty() || rcode.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");
+            }else{
                 editStmt.executeUpdate();
+                }
                 //editStmt.execute();
                 JOptionPane.showMessageDialog(this, "Record Updated");                
             }else{
