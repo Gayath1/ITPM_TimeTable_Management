@@ -228,8 +228,13 @@ public class AddRooms extends javax.swing.JFrame {
             insert.setString(2, RName);
             insert.setString(4, bcode);
             insert.setString(3, Rtag);
+            
+            if(RId.isEmpty() || RName.isEmpty() || bcode.isEmpty() || Rtag.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");
+            }else{
             insert.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Record Added");                
+            JOptionPane.showMessageDialog(this, "Record Added");
+            }
         }catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRooms.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
