@@ -165,7 +165,11 @@ Connection conn;
             if (JOptionPane.showConfirmDialog(this,"This Will Delete Selected Building! Proceed?")==0){
                 deleteStmt = conn.prepareStatement("DELETE FROM buildings WHERE building_code = ?;");         
                 deleteStmt.setString(1, bcode);
+                if(bcode.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");
+            }else{
                 deleteStmt.execute();
+                }
                 JOptionPane.showMessageDialog(this, "Buiding Deleted");
             }else{
                 JOptionPane.showMessageDialog(this, "Aborted!");                
