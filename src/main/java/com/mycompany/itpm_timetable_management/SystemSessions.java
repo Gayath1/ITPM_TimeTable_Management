@@ -32,6 +32,7 @@ public class SystemSessions extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +83,17 @@ public class SystemSessions extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Session Locaions.png")); // NOI18N
+        jButton4.setBorder(null);
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setFocusPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,16 +103,17 @@ public class SystemSessions extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(367, 367, 367))
             .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(431, 431, 431)
+                        .addComponent(jButton4)
+                        .addGap(86, 86, 86)
                         .addComponent(jButton5)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -109,13 +122,15 @@ public class SystemSessions extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(102, 102, 102)
-                .addComponent(jButton5)
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton5)
+                    .addComponent(jButton4))
                 .addGap(113, 113, 113))
         );
 
@@ -142,6 +157,11 @@ public class SystemSessions extends javax.swing.JFrame {
         // TODO add your handling code here:
         new SearchSession().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        new SessionRooms().setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +202,7 @@ public class SystemSessions extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

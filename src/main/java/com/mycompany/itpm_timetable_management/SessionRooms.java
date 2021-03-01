@@ -5,19 +5,54 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.LecturerTimeTable.DB_URL;
+import static com.mycompany.itpm_timetable_management.LecturerTimeTable.password;
+import static com.mycompany.itpm_timetable_management.LecturerTimeTable.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Gayath
  */
 public class SessionRooms extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
     /**
      * Creates new form SessionRooms
      */
     public SessionRooms() {
         initComponents();
+        currentSession();
     }
 
+    Connection conn;
+    PreparedStatement show;
+
+    private void currentSession(){
+           
+        try {    
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM session");              
+            while(rs.next()){     
+                String name = rs.getString("id");
+                jComboBox1.addItem(name);;
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SessionRooms.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SessionRooms.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,6 +135,11 @@ public class SessionRooms extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\save.png")); // NOI18N
         jButton2.setBorder(null);
@@ -173,6 +213,11 @@ public class SessionRooms extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
