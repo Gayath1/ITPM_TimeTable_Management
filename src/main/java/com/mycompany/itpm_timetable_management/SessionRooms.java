@@ -5,6 +5,9 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.AddSession.DB_URL;
+import static com.mycompany.itpm_timetable_management.AddSession.password;
+import static com.mycompany.itpm_timetable_management.AddSession.username;
 import static com.mycompany.itpm_timetable_management.EditRooms.DB_URL;
 import static com.mycompany.itpm_timetable_management.EditRooms.password;
 import static com.mycompany.itpm_timetable_management.EditRooms.username;
@@ -19,6 +22,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -141,6 +145,8 @@ public class SessionRooms extends javax.swing.JFrame {
                    jLabel6.setText(tags);
                    String groups = rs.getString("groups");
                    jLabel7.setText(groups);
+                   String hours = rs.getString("hours");
+                   jLabel8.setText(hours);
                 }//end while
              }
             
@@ -352,6 +358,50 @@ public class SessionRooms extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        PreparedStatement insert;
+        
+        String subcode = jComboBox1.getSelectedItem( ).toString();
+        String subject = jLabel4.getText();
+        String lecturers = jLabel5.getText();
+        String tags = jLabel6.getText();
+        String grpId = jLabel7.getText();
+        String hours = jLabel8.getText();
+        String room = jComboBox2.getSelectedItem( ).toString();
+        
+        //new
+
+        try {
+            
+            //Insert data to db           
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            insert = conn.prepareStatement("INSERT INTO timetable(subcode,`subject`,lecturers,tags,`groups`,hours,room)VALUES(?,?,?,?,?,?,?)");
+            
+            insert.setString(3, lecturers);
+            insert.setString(4, tags);
+            insert.setString(5, grpId);
+            insert.setString(2, subject);
+            insert.setString(1, subcode);
+            insert.setString(6, hours);
+            insert.setString(7, room);
+            
+            if(room.isEmpty() || subcode.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");                
+            }
+            else{
+                
+                    insert.executeUpdate();           
+                    JOptionPane.showMessageDialog(this, "Session Created!");
+
+                
+            }                     
+            
+           
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddSession.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
+            Logger.getLogger(AddSession.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
