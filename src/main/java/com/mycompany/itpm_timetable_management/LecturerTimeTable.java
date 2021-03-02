@@ -189,7 +189,7 @@ public class LecturerTimeTable extends javax.swing.JFrame {
                 Class.forName("com.mysql.jdbc.Driver");
                 conn = DriverManager.getConnection(DB_URL, username, password);
 
-                show = conn.prepareStatement("select * from session WHERE lecturers = '"+lecturer+"'");
+                show = conn.prepareStatement("select * from timetable WHERE lecturers = '"+lecturer+"'");
                 ResultSet rs = show.executeQuery();
                 ResultSetMetaData Rss = rs.getMetaData();
                 c=Rss.getColumnCount();
@@ -206,7 +206,8 @@ public class LecturerTimeTable extends javax.swing.JFrame {
                          
                         v.add(rs.getString("lecturers"));
                         v.add(rs.getString("tags"));
-                        v.add(rs.getString("groups"));    
+                        v.add(rs.getString("groups"));
+                        v.add(rs.getString("room"));
                         v.add(rs.getString("hours"));
                                                
                     }
