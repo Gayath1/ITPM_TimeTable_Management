@@ -12,9 +12,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -82,6 +85,11 @@ public class StudentTimeTable extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
         jButton2.setBorder(null);
@@ -172,6 +180,51 @@ public class StudentTimeTable extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String group = jComboBox1.getSelectedItem().toString();
+            
+             int c;
+                    
+             try {
+            
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, username, password);
+
+                show = conn.prepareStatement("select * from timetable WHERE `groups` = '"+group+"'");
+                ResultSet rs = show.executeQuery();
+                ResultSetMetaData Rss = rs.getMetaData();
+                c=Rss.getColumnCount();
+                
+                DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+                Df.setRowCount(0);
+                
+                while(rs.next()){
+                    Vector v = new Vector();
+                    
+                    for(int a=1;a<=c;a++){
+                        
+                        v.add(rs.getString("subject"));  
+                         
+                        v.add(rs.getString("lecturers"));
+                        v.add(rs.getString("tags"));
+                        v.add(rs.getString("groups"));
+                        v.add(rs.getString("room"));
+                        v.add(rs.getString("hours"));
+                                               
+                    }
+                    
+                    Df.addRow(v);
+                }
+
+            }
+             catch (ClassNotFoundException ex) {
+            Logger.getLogger(StudentTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
