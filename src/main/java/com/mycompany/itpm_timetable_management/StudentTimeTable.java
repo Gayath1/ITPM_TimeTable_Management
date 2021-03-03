@@ -191,7 +191,6 @@ public class StudentTimeTable extends javax.swing.JFrame {
             
                 Class.forName("com.mysql.jdbc.Driver");
                 conn = DriverManager.getConnection(DB_URL, username, password);
-
                 show = conn.prepareStatement("select * from timetable WHERE `groups` = '"+group+"'");
                 ResultSet rs = show.executeQuery();
                 ResultSetMetaData Rss = rs.getMetaData();
