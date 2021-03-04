@@ -5,19 +5,54 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.StudentTimeTable.DB_URL;
+import static com.mycompany.itpm_timetable_management.StudentTimeTable.password;
+import static com.mycompany.itpm_timetable_management.StudentTimeTable.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Gayath
  */
 public class LocationTimeTable extends javax.swing.JFrame {
 
+    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
+    static final String username = "root";
+    static final String password = "Gayya";
     /**
      * Creates new form LocationTimeTable
      */
     public LocationTimeTable() {
         initComponents();
+        currentroom();
     }
 
+     Connection conn;
+    PreparedStatement show;
+
+    private void currentroom(){
+           
+        try {    
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT room_name FROM rooms");              
+            while(rs.next()){     
+                String name = rs.getString("room_name");
+                jComboBox1.addItem(name);;
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LocationTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(LocationTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
