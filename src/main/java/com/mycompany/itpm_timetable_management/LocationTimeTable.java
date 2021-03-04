@@ -12,9 +12,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -175,6 +178,45 @@ public class LocationTimeTable extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String room = jComboBox1.getSelectedItem().toString();
+            
+             int c;
+                    
+             try {
+            
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, username, password);
+                show = conn.prepareStatement("select * from timetable WHERE `room` = '"+room+"'");
+                ResultSet rs = show.executeQuery();
+                ResultSetMetaData Rss = rs.getMetaData();
+                c=Rss.getColumnCount();
+                
+                DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+                Df.setRowCount(0);
+                
+                while(rs.next()){
+                    Vector v = new Vector();
+                    
+                    for(int a=1;a<=c;a++){
+                        
+                        v.add(rs.getString("subject"));  
+                         
+                        v.add(rs.getString("lecturers"));
+                        v.add(rs.getString("tags"));
+                        v.add(rs.getString("groups"));
+                        v.add(rs.getString("room"));
+                        v.add(rs.getString("hours"));
+                                               
+                    }
+                    
+                    Df.addRow(v);
+                }
+
+            } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LocationTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(LocationTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
