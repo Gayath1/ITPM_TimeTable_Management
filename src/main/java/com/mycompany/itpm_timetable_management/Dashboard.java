@@ -5,19 +5,25 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Gayath
  */
 public class Dashboard extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        ImageIcon icon = new ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\logo.png");
+        this.setIconImage(icon.getImage());
     }
 
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
