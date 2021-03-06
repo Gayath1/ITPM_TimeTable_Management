@@ -8,6 +8,7 @@ package com.mycompany.itpm_timetable_management;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
@@ -23,6 +24,8 @@ public class AddBuilding extends javax.swing.JFrame {
      */
     public AddBuilding() {
         initComponents();
+        ImageIcon icon = new ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\logo.png");
+        this.setIconImage(icon.getImage());
     }
 
     /**
