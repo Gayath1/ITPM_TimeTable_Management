@@ -47,6 +47,7 @@ public class AddBuilding extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
