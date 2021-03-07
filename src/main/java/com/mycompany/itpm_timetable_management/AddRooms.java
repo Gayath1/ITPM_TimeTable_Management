@@ -78,6 +78,7 @@ public class AddRooms extends javax.swing.JFrame {
         jLabel4.setText("Select Building");
 
         jComboBox1.setFont(new java.awt.Font("Nexa Bold", 0, 18)); // NOI18N
+        jComboBox1.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Nexa Bold", 0, 36)); // NOI18N
         jLabel5.setText("Room Tag");
