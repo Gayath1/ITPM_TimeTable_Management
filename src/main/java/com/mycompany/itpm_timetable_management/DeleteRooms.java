@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,6 +36,8 @@ public class DeleteRooms extends javax.swing.JFrame {
     public DeleteRooms() {
         initComponents();
         currentRoom();
+        ImageIcon icon = new ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\logo.png");
+        this.setIconImage(icon.getImage());
     }
 
     Connection conn;
