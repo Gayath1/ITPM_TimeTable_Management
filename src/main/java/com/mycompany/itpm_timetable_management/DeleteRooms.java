@@ -36,7 +36,7 @@ public class DeleteRooms extends javax.swing.JFrame {
     public DeleteRooms() {
         initComponents();
         currentRoom();
-        ImageIcon icon = new ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\logo.png");
+        ImageIcon icon = new ImageIcon("/Imagesrc/logo.png");
         this.setIconImage(icon.getImage());
     }
 
