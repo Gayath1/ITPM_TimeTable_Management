@@ -5,6 +5,8 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Gayath
@@ -16,6 +18,8 @@ public class LocationDashboard extends javax.swing.JFrame {
      */
     public LocationDashboard() {
         initComponents();
+        ImageIcon icon = new ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\logo.png");
+        this.setIconImage(icon.getImage());
     }
 
     /**
@@ -33,6 +37,7 @@ public class LocationDashboard extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\buildings.png")); // NOI18N
@@ -108,6 +113,7 @@ public class LocationDashboard extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
