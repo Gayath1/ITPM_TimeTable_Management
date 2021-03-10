@@ -57,6 +57,8 @@ public class EditBuildings extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Nexa Bold", 0, 48)); // NOI18N
         jLabel1.setText("Edit Buildings");
 
