@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -33,6 +34,8 @@ public class EditBuildings extends javax.swing.JFrame {
     public EditBuildings() {
         initComponents();
         currentBuildings();
+        ImageIcon icon = new ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\logo.png");
+        this.setIconImage(icon.getImage());
     }
 
     /**
