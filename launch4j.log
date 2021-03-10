@@ -1,0 +1,145 @@
+
+
+Version:	3.14
+CmdLine:	E:\my\Gayath\ITPM_TimeTable_Management\test.exe --l4j-debug
+WOW64:		yes
+Working dir:	E:\my\Gayath\ITPM_TimeTable_Management\.
+Java min ver:	1.008.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000_281
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\14
+Check launcher:	E:\Program Files\Java\jdk-14\bin\javaw.exe (OK)
+Match:		1.014.000
+Check:		SOFTWARE\JavaSoft\JDK\15.0.2
+Check launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe (OK)
+Match:		1.015.000_002
+Runtime used:	1.015.000_002 (64-bit)
+Launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe
+Launcher args:	-jar "E:\my\Gayath\ITPM_TimeTable_Management\test.exe"
+Args length:	54/32768 chars
+Exit code:	1
+
+
+Version:	3.14
+CmdLine:	E:\my\Gayath\ITPM_TimeTable_Management\test.exe --l4j-debug
+WOW64:		yes
+Working dir:	E:\my\Gayath\ITPM_TimeTable_Management\.
+Java min ver:	1.008.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000_281
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\14
+Check launcher:	E:\Program Files\Java\jdk-14\bin\javaw.exe (OK)
+Match:		1.014.000
+Check:		SOFTWARE\JavaSoft\JDK\15.0.2
+Check launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe (OK)
+Match:		1.015.000_002
+Runtime used:	1.015.000_002 (64-bit)
+Launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe
+Launcher args:	-jar "E:\my\Gayath\ITPM_TimeTable_Management\test.exe"
+Args length:	54/32768 chars
+Exit code:	1
+
+
+Version:	3.14
+CmdLine:	E:\my\Gayath\ITPM_TimeTable_Management\test.exe --l4j-debug
+WOW64:		yes
+Working dir:	E:\my\Gayath\ITPM_TimeTable_Management\.
+Java min ver:	1.008.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000_281
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\14
+Check launcher:	E:\Program Files\Java\jdk-14\bin\javaw.exe (OK)
+Match:		1.014.000
+Check:		SOFTWARE\JavaSoft\JDK\15.0.2
+Check launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe (OK)
+Match:		1.015.000_002
+Runtime used:	1.015.000_002 (64-bit)
+Launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe
+Launcher args:	-jar "E:\my\Gayath\ITPM_TimeTable_Management\test.exe"
+Args length:	54/32768 chars
+Exit code:	1
+
+
+Version:	3.14
+CmdLine:	E:\my\Gayath\ITPM_TimeTable_Management\test.exe --l4j-debug
+WOW64:		yes
+Working dir:	E:\my\Gayath\ITPM_TimeTable_Management\.
+Java min ver:	1.008.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000_281
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\14
+Check launcher:	E:\Program Files\Java\jdk-14\bin\javaw.exe (OK)
+Match:		1.014.000
+Check:		SOFTWARE\JavaSoft\JDK\15.0.2
+Check launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe (OK)
+Match:		1.015.000_002
+Runtime used:	1.015.000_002 (64-bit)
+Launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe
+Launcher args:	-jar "E:\my\Gayath\ITPM_TimeTable_Management\test.exe"
+Args length:	54/32768 chars
+Exit code:	1
+
+
+Version:	3.14
+CmdLine:	E:\my\Gayath\ITPM_TimeTable_Management\test.exe --l4j-debug
+WOW64:		yes
+Working dir:	E:\my\Gayath\ITPM_TimeTable_Management\.
+Java min ver:	1.008.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (OK)
+Match:		1.008.000_281
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\14
+Check launcher:	E:\Program Files\Java\jdk-14\bin\javaw.exe (OK)
+Match:		1.014.000
+Check:		SOFTWARE\JavaSoft\JDK\15.0.2
+Check launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe (OK)
+Match:		1.015.000_002
+Runtime used:	1.015.000_002 (64-bit)
+Launcher:	E:\Program Files\Java\jdk-15.0.2\bin\javaw.exe
+Launcher args:	-jar "E:\my\Gayath\ITPM_TimeTable_Management\test.exe"
+Args length:	54/32768 chars
+Exit code:	1
