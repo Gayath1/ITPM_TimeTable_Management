@@ -99,6 +99,7 @@ public class EditRooms extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1400, 749));
 
         jComboBox1.setFont(new java.awt.Font("Nexa Bold", 0, 14)); // NOI18N
