@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class AddBuilding extends javax.swing.JFrame {
 
-    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
-    static final String username = "root";
-    static final String password = "Gayya";
+    static final String DB_URL = "jdbc:mysql://db4free.net:3306/gb_paf";
+    static final String username = "gayath1";
+    static final String password = "Gayath@chandula1";
     /**
      * Creates new form AddBuilding
      */
