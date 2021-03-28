@@ -25,9 +25,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class LocationTimeTable extends javax.swing.JFrame {
 
-    static final String DB_URL = "jdbc:mysql://localhost:3306/timetable";
-    static final String username = "root";
-    static final String password = "Gayya";
+    static final String DB_URL = "jdbc:mysql://sql6.freesqldatabase.com:3306/sql6401767";
+    static final String username = "sql6401767";
+    static final String password = "sCxTL8aivf";
     /**
      * Creates new form LocationTimeTable
      */
