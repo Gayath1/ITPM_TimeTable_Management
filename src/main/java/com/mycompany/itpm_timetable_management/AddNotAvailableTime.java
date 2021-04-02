@@ -5,6 +5,18 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.AddSession.DB_URL;
+import static com.mycompany.itpm_timetable_management.AddSession.password;
+import static com.mycompany.itpm_timetable_management.AddSession.username;
+import static com.mycompany.itpm_timetable_management.EditRooms.DB_URL;
+import static com.mycompany.itpm_timetable_management.EditRooms.password;
+import static com.mycompany.itpm_timetable_management.EditRooms.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Gayath
@@ -16,10 +28,73 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
     /**
      * Creates new form AddNotAvailableTime
      */
-    public AddNotAvailableTime() {
+    public AddNotAvailableTime(){
         initComponents();
+        
     }
+    
+    Connection conn;
+    private void showDetails() throws SQLException{
+        Class.forName("com.mysql.jdbc.Driver");
+        conn = DriverManager.getConnection(DB_URL, username, password);
+        String grp = (String)jComboBox1.getSelectedItem();
+        if("Lecturer".equals(grp)){
+            
+              System.out.println("l");
+        Statement statement = conn.createStatement();
+        String query = "SELECT Lecturer_name from lecturers";
+        ResultSet rs = statement.executeQuery(query);
+       
+       while(rs.next()){
+             
+         jComboBox2.addItem(rs.getString("Lecturer_name"));
+             
+       
+       }
+       conn.close();
+       }else if("Session".equals(grp)){
+       System.out.println("s");
+       Statement stmt = null;
+       Class.forName("com.mysql.jdbc.Driver");
+       conn = DriverManager.getConnection(DB_URL, username, password);
+       ResultSet rs = conn.createStatement().executeQuery("SELECT subcode,tags,groups from session"); 
+       
+       while(rs.next()){
+             
+         jComboBox2.addItem(rs.getString("subcode")+"/"+rs.getString("tags")+"/"+rs.getString("groups"));
+           
+       }
+           conn.close();
+       }else if("Group".equals(grp)){
+           System.out.println("g");
+       Statement stmt = null;
+       Class.forName("com.mysql.jdbc.Driver");
+       conn = DriverManager.getConnection(DB_URL, username, password);
+       ResultSet rs = conn.createStatement().executeQuery("SELECT id from groupids"); 
+       
+       while(rs.next()){
+             
+         jComboBox2.addItem(rs.getString("id"));
+           
+       }
+       conn.close();
+       }else if("Sub-group".equals(grp)){
+           System.out.println("sub");
+        Statement stmt = null;
+       Class.forName("com.mysql.jdbc.Driver");
+       conn = DriverManager.getConnection(DB_URL, username, password);
+       ResultSet rs = conn.createStatement().executeQuery("SELECT id from subgroupids");
 
+       while(rs.next()){
+             
+         jComboBox2.addItem(rs.getString("id"));
+           
+       }
+       conn.close();
+       }
+    
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,11 +130,16 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
         jLabel2.setText("Select Type");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Lecturer", "Session", "Group", "Sub-group" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
         jLabel3.setText("Select ID");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+        jComboBox2.setSelectedIndex(-1);
 
         jLabel4.setFont(new java.awt.Font("Nexa Bold", 0, 24)); // NOI18N
         jLabel4.setText("Select Day");
@@ -178,6 +258,12 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        jComboBox2.removeAllItems();
+        showDetails();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
