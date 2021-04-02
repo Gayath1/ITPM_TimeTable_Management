@@ -16,6 +16,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -257,6 +261,194 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String day = (String) jComboBox3.getSelectedItem();
+        String type = (String) jComboBox1.getSelectedItem();
+        int sHour = (int) jSpinner1.getValue();
+        int eHour = (int) jSpinner3.getValue();
+        int sMin  = (int) jSpinner2.getValue();
+        int eMin  = (int) jSpinner4.getValue();
+        String ampm = (String) jComboBox4.getSelectedItem();
+        String ampm1 = (String) jComboBox5.getSelectedItem();
+        String startTime = "";
+        String endTime = "";
+        String id = (String) jComboBox2.getSelectedItem();
+
+        if(jComboBox1.equals("") ||day.equals("") || sHour == 0 || eHour == 0  ){
+
+            JOptionPane.showMessageDialog(this,"Please Select Required Information","Error",JOptionPane.ERROR_MESSAGE);
+           
+        }
+        else{
+
+            try {
+                if(ampm.equals("PM")){
+                    
+                    if(sHour == 1){
+                        sHour = 13;
+                    }else if(sHour == 2){
+                        
+                        sHour = 14;
+                    }else if(sHour == 3){
+                        
+                        sHour = 15;
+                    }else if(sHour == 4){
+                        
+                        sHour = 16;
+                    }else if(sHour == 5){
+                        
+                        sHour = 17;
+                    }else if(sHour == 6){
+                        
+                        sHour = 18;
+                    }else if(sHour == 7){
+                        
+                        sHour = 19;
+                    }else if(sHour == 8){
+                        
+                        sHour = 20;
+                    }else if(sHour == 9){
+                        
+                        sHour = 21;
+                    }else if(sHour == 10){
+                        
+                        sHour = 22;
+                    }else if(sHour == 11){
+                        
+                        sHour = 23;
+                    }
+                    
+                }else if(ampm.equals("AM") && sHour == 12){
+                    sHour = 00;
+                }
+                //------------------------------------------------------------------------------------------
+                if(ampm1.equals("PM")){
+                    
+                    if(eHour == 1){
+                        eHour = 13;
+                    }else if(eHour == 2){
+                        
+                        eHour = 14;
+                    }else if(eHour == 3){
+                        
+                        eHour = 15;
+                    }else if(eHour == 4){
+                        
+                        eHour = 16;
+                    }else if(eHour == 5){
+                        
+                        eHour = 17;
+                    }else if(eHour == 6){
+                        
+                        eHour = 18;
+                    }else if(eHour == 7){
+                        
+                        eHour = 19;
+                    }else if(eHour == 8){
+                        
+                        eHour = 20;
+                    }else if(eHour == 9){
+                        
+                        eHour = 21;
+                    }else if(eHour == 10){
+                        
+                        eHour = 22;
+                    }else if(eHour == 11){
+                        
+                        eHour = 23;
+                    }
+                    
+                }else if(ampm1.equals("AM") && eHour == 12){
+                    eHour = 00;
+                }
+                
+                
+                //----------------------------------------------------------------------------------
+                if(sHour > eHour){
+                    
+                 jSpinner1.setValue(0);
+                 jSpinner3.setValue(0);
+                 jSpinner2.setValue(0);
+                 jSpinner4.setValue(0);
+                 throw new ArithmeticException("exception");
+                
+                }else if(sHour == eHour && sMin > eMin){
+                
+                 jSpinner1.setValue(0);
+                 jSpinner3.setValue(0);
+                 jSpinner2.setValue(0);
+                 jSpinner4.setValue(0);
+                 throw new ArithmeticException("exception");
+                
+                }
+                
+                
+                //----------------------------------------------------------------------------------
+                
+                
+                
+                
+                startTime = sHour+":"+sMin+":00";
+                endTime = eHour+":"+eMin+":00";
+                String grp = (String)jComboBox1.getSelectedItem();
+                if("Session".equals(grp)){
+                    
+                    
+                    try {
+                        String[] sessionArray = id.split("/",3);
+                        
+                        
+                        
+                        Statement stmt = null;
+                        Class.forName("com.mysql.jdbc.Driver");
+       conn = DriverManager.getConnection(DB_URL, username, password);
+       ResultSet rs = conn.createStatement().executeQuery("SELECT id from session where subcode = '"+sessionArray[0]+"' and tags = '"+sessionArray[1]+"' and groups = '"+sessionArray[2]+"'"); 
+                        
+                        while(rs.next()){
+                            
+                            id = rs.getString("id");
+                            
+                            
+                            
+                        }      
+                    conn.close();
+                    } catch (Exception ex) {
+                            Logger.getLogger(AddNotAvailableTime.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    
+                }
+                
+                
+                
+                String uniqueID = UUID.randomUUID().toString();
+                
+               Class.forName("com.mysql.jdbc.Driver");
+               conn = DriverManager.getConnection(DB_URL, username, password);
+               conn.createStatement().executeUpdate("INSERT INTO NotAvailableTime(type,typeId,Day,startTime,endTime)  "
+                        +" VALUES ("
+                        +"'"+type+"' ,"
+                        +"'"+id+"' ,"
+                         +"'"+day+"' ,"
+                         +"'"+startTime+"' ,"
+                         +"'"+endTime+"' )"); 
+               
+                       
+                
+                
+                
+                conn.close();
+                
+                //succes msg
+                JOptionPane.showMessageDialog(this," Details added succesfully","Succesful",JOptionPane.INFORMATION_MESSAGE);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(AddNotAvailableTime.class.getName()).log(Level.SEVERE, null, ex);
+               
+            }catch (ArithmeticException ex) {
+               JOptionPane.showMessageDialog(this, "Start time should be less than end time","Error",JOptionPane.ERROR_MESSAGE);
+               
+            }
+          
+    }                               
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
