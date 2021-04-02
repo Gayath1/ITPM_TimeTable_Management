@@ -10,7 +10,9 @@ package com.mycompany.itpm_timetable_management;
  * @author Gayath
  */
 public class AddNotAvailableTime extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://sql6.freesqldatabase.com:3306/sql6401767";
+    static final String username = "sql6401767";
+    static final String password = "sCxTL8aivf";
     /**
      * Creates new form AddNotAvailableTime
      */
