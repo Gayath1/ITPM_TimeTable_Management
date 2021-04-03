@@ -10,7 +10,9 @@ package com.mycompany.itpm_timetable_management;
  * @author Gayath
  */
 public class AddWorkingDays extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://sql6.freesqldatabase.com:3306/sql6401767";
+    static final String username = "sql6401767";
+    static final String password = "sCxTL8aivf";
     /**
      * Creates new form AddWorkingDays
      */
@@ -759,7 +761,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
         }
 
         try {
-
+    
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
 
