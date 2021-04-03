@@ -5,6 +5,17 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.AddSession.DB_URL;
+import static com.mycompany.itpm_timetable_management.AddSession.password;
+import static com.mycompany.itpm_timetable_management.AddSession.username;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gayath
@@ -687,6 +698,8 @@ public class AddWorkingDays extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_timeslot2ActionPerformed
 
+    Connection conn;
+    PreparedStatement insert;
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
         //--NO OF DAYS--
@@ -763,9 +776,8 @@ public class AddWorkingDays extends javax.swing.JFrame {
         try {
     
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
-
-            insert = con.prepareStatement("insert into workdays(Noworkday,workday,worktime,timeslot) values(?,?,?,?)");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            insert = conn.prepareStatement("insert into workdays(Noworkday,workday,worktime,timeslot) values(?,?,?,?)");
             insert.setString(1, Noworkday);
             insert.setString(2, workdays);
             insert.setString(3, worktime1);
@@ -781,8 +793,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
             Logger.getLogger(AddWorkingDays.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        new SystemWorkingDays().setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void p4backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p4backMouseClicked
