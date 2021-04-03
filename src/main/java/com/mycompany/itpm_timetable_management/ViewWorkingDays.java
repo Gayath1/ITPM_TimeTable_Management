@@ -12,10 +12,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -33,6 +37,8 @@ public class ViewWorkingDays extends javax.swing.JFrame {
      */
     public ViewWorkingDays() {
         initComponents();
+        table_update();
+        getidCombo();
     }
 
     /**
@@ -232,6 +238,65 @@ public class ViewWorkingDays extends javax.swing.JFrame {
     PreparedStatement show;
     PreparedStatement delete;
     
+        private void table_update(){
+            
+            int c;
+                    
+             try {
+            
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, username, password);
+
+                show = conn.prepareStatement("select * from workdays");
+                ResultSet rs = show.executeQuery();
+                ResultSetMetaData Rss = rs.getMetaData();
+                c=Rss.getColumnCount();
+                
+                DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+                Df.setRowCount(0);
+                
+                while(rs.next()){
+                    Vector v = new Vector();
+                    
+                    for(int a=1;a<=c;a++){
+                        v.add(rs.getString("id"));
+                        v.add(rs.getString("Noworkday"));
+                        v.add(rs.getString("workday"));  
+                        v.add(rs.getString("worktime"));
+                        v.add(rs.getString("timeslot"));
+                        
+                    }
+                    
+                    Df.addRow(v);
+                }
+
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ViewWorkingDays.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (SQLException ex) {
+                Logger.getLogger(ViewWorkingDays.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    private void getidCombo(){
+            
+        try { 
+             Class.forName("com.mysql.jdbc.Driver");
+
+             conn = DriverManager.getConnection(DB_URL, username, password);
+
+             Statement statement = conn.createStatement();
+             String query = "SELECT id FROM workdays";
+             ResultSet rs = statement.executeQuery(query);
+
+             while (rs.next())
+             {      
+                String id = rs.getString("id");         
+                selectidcombo.addItem(rs.getString("id"));
+             }//end while
+             conn.close();
+             } catch (Exception e) {
+                  e.printStackTrace();
+             }
+    }
     private void selectidcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectidcomboActionPerformed
         // TODO add your handling code here:
         String selectedID = (String)selectidcombo.getSelectedItem();
