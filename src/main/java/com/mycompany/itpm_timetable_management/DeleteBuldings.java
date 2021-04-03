@@ -24,9 +24,9 @@ import javax.swing.JOptionPane;
  */
 public class DeleteBuldings extends javax.swing.JFrame {
 
-    static final String DB_URL = "jdbc:mysql://sql6.freesqldatabase.com:3306/sql6401767";
-    static final String username = "sql6401767";
-    static final String password = "sCxTL8aivf";
+    static final String DB_URL = "jdbc:mysql://remotemysql.com:3306/QoQsk4BeEJ";
+    static final String username = "QoQsk4BeEJ";
+    static final String password = "r7p32rsm8e";
     /**
      * Creates new form DeleteBuldings
      */
