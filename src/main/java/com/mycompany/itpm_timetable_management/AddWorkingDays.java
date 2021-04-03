@@ -16,6 +16,10 @@ public class AddWorkingDays extends javax.swing.JFrame {
      */
     public AddWorkingDays() {
         initComponents();
+        p1.setVisible(true);
+        p2.setVisible(false);
+        p3.setVisible(false);
+        p4.setVisible(false);
     }
 
     /**
@@ -27,28 +31,14 @@ public class AddWorkingDays extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        pp1 = new javax.swing.JButton();
-        pp2 = new javax.swing.JButton();
-        pp3 = new javax.swing.JButton();
-        pp4 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        p4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        timeslot = new javax.swing.JRadioButton();
-        timeslot2 = new javax.swing.JRadioButton();
-        Submit = new javax.swing.JButton();
-        p4back = new javax.swing.JButton();
-        p3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        worktime = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        worktime2 = new javax.swing.JSpinner();
-        p3next = new javax.swing.JButton();
-        p3back = new javax.swing.JButton();
-        p5 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        p1 = new javax.swing.JPanel();
+        Noworkday = new javax.swing.JSpinner();
+        jLabel2 = new javax.swing.JLabel();
+        p1next = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        p2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         workday = new javax.swing.JCheckBox();
         monday = new javax.swing.JCheckBox();
         tuesday = new javax.swing.JCheckBox();
@@ -58,159 +48,217 @@ public class AddWorkingDays extends javax.swing.JFrame {
         saturday = new javax.swing.JCheckBox();
         p2next = new javax.swing.JButton();
         p2back = new javax.swing.JButton();
-        p6 = new javax.swing.JPanel();
-        Noworkday2 = new javax.swing.JSpinner();
-        jLabel9 = new javax.swing.JLabel();
-        p1next2 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        p3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        worktime = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        worktime2 = new javax.swing.JSpinner();
+        p3next = new javax.swing.JButton();
+        p3back = new javax.swing.JButton();
+        p4 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        timeslot = new javax.swing.JRadioButton();
+        timeslot2 = new javax.swing.JRadioButton();
+        Submit = new javax.swing.JButton();
+        p4back = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        pp1 = new javax.swing.JButton();
+        pp2 = new javax.swing.JButton();
+        pp3 = new javax.swing.JButton();
+        pp4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pp1.setText("Number of Working Days Per Week");
-        pp1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+
+        p1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        p1.setPreferredSize(new java.awt.Dimension(1090, 494));
+
+        Noworkday.setModel(new javax.swing.SpinnerNumberModel(0, 0, 7, 1));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setText("Number of Working Days Per Week");
+
+        p1next.setText("Next");
+        p1next.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pp1MouseClicked(evt);
+                p1next(evt);
             }
         });
-        pp1.addActionListener(new java.awt.event.ActionListener() {
+        p1next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pp1ActionPerformed(evt);
+                p1nextActionPerformed(evt);
             }
         });
 
-        pp2.setText("Working Days");
-        pp2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pp2MouseClicked(evt);
-            }
-        });
-        pp2.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setText("Back");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pp2ActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
 
-        pp3.setText("Working Time Per Day");
-        pp3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pp3MouseClicked(evt);
-            }
-        });
-        pp3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pp3ActionPerformed(evt);
-            }
-        });
-
-        pp4.setText("Time Slot");
-        pp4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pp4MouseClicked(evt);
-            }
-        });
-        pp4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pp4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pp1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-            .addComponent(pp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pp4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(pp1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pp2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pp3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pp4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
-        );
-
-        p4.setPreferredSize(new java.awt.Dimension(1090, 494));
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel7.setText("Time Slot");
-
-        timeslot.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        timeslot.setText("One hour time slots");
-        timeslot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timeslotActionPerformed(evt);
-            }
-        });
-
-        timeslot2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        timeslot2.setText("Thirty minutes time slots ");
-        timeslot2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timeslot2ActionPerformed(evt);
-            }
-        });
-
-        Submit.setText("Submit");
-        Submit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitActionPerformed(evt);
-            }
-        });
-
-        p4back.setText("Back");
-        p4back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p4backMouseClicked(evt);
-            }
-        });
-        p4back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p4backActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout p4Layout = new javax.swing.GroupLayout(p4);
-        p4.setLayout(p4Layout);
-        p4Layout.setHorizontalGroup(
-            p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p4Layout.createSequentialGroup()
-                .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(p4Layout.createSequentialGroup()
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(p4Layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(timeslot2)
-                            .addComponent(timeslot))))
-                .addContainerGap(608, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p4Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addGap(472, 472, 472)
+                        .addComponent(Noworkday, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(510, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(p4back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p1next, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(185, 185, 185))
         );
-        p4Layout.setVerticalGroup(
-            p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p4Layout.createSequentialGroup()
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(timeslot)
+                .addComponent(jLabel2)
+                .addGap(34, 34, 34)
+                .addComponent(Noworkday, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p1next, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(96, 96, 96))
+        );
+
+        p2.setPreferredSize(new java.awt.Dimension(1090, 494));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setText("Working Days");
+
+        workday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        workday.setText("Sunday");
+        workday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workdayActionPerformed(evt);
+            }
+        });
+
+        monday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        monday.setText("Monday");
+        monday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mondayActionPerformed(evt);
+            }
+        });
+
+        tuesday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        tuesday.setText("Tuesday");
+        tuesday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tuesdayActionPerformed(evt);
+            }
+        });
+
+        wednesday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        wednesday.setText("Wednesday");
+
+        thursday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        thursday.setText("Thursday");
+        thursday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                thursdayActionPerformed(evt);
+            }
+        });
+
+        friday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        friday.setText("Friday");
+        friday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fridayActionPerformed(evt);
+            }
+        });
+
+        saturday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        saturday.setText("Saturday");
+
+        p2next.setText("Next");
+        p2next.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p2nextMouseClicked(evt);
+            }
+        });
+        p2next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p2nextActionPerformed(evt);
+            }
+        });
+
+        p2back.setText("Back");
+        p2back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p2backMouseClicked(evt);
+            }
+        });
+        p2back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p2backActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
+        p2.setLayout(p2Layout);
+        p2Layout.setHorizontalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
+                .addGap(0, 679, Short.MAX_VALUE)
+                .addComponent(p2back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(p2next, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
+            .addGroup(p2Layout.createSequentialGroup()
+                .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p2Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p2Layout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(monday)
+                            .addComponent(workday)
+                            .addComponent(wednesday)
+                            .addComponent(thursday)
+                            .addComponent(friday)
+                            .addComponent(saturday)
+                            .addComponent(tuesday))))
+                .addContainerGap(684, Short.MAX_VALUE))
+        );
+        p2Layout.setVerticalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p2Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel3)
+                .addGap(28, 28, 28)
+                .addComponent(workday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(timeslot2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(p4back, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(monday)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tuesday)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(wednesday)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(thursday)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(friday)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(saturday)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p2next, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p2back, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(96, 96, 96))
         );
 
@@ -285,270 +333,343 @@ public class AddWorkingDays extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addComponent(worktime2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(p3next, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(p3back, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(96, 96, 96))
         );
 
-        p5.setPreferredSize(new java.awt.Dimension(1090, 494));
+        p4.setPreferredSize(new java.awt.Dimension(1090, 494));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel8.setText("Working Days");
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel7.setText("Time Slot");
 
-        workday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        workday.setText("Sunday");
-        workday.addActionListener(new java.awt.event.ActionListener() {
+        timeslot.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        timeslot.setText("One hour time slots");
+        timeslot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                workdayActionPerformed(evt);
+                timeslotActionPerformed(evt);
             }
         });
 
-        monday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        monday.setText("Monday");
-        monday.addActionListener(new java.awt.event.ActionListener() {
+        timeslot2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        timeslot2.setText("Thirty minutes time slots ");
+        timeslot2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mondayActionPerformed(evt);
+                timeslot2ActionPerformed(evt);
             }
         });
 
-        tuesday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        tuesday.setText("Tuesday");
-        tuesday.addActionListener(new java.awt.event.ActionListener() {
+        Submit.setText("Submit");
+        Submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tuesdayActionPerformed(evt);
+                SubmitActionPerformed(evt);
             }
         });
 
-        wednesday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        wednesday.setText("Wednesday");
-
-        thursday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        thursday.setText("Thursday");
-        thursday.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                thursdayActionPerformed(evt);
-            }
-        });
-
-        friday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        friday.setText("Friday");
-        friday.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fridayActionPerformed(evt);
-            }
-        });
-
-        saturday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        saturday.setText("Saturday");
-
-        p2next.setText("Next");
-        p2next.addMouseListener(new java.awt.event.MouseAdapter() {
+        p4back.setText("Back");
+        p4back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p2nextMouseClicked(evt);
+                p4backMouseClicked(evt);
             }
         });
-        p2next.addActionListener(new java.awt.event.ActionListener() {
+        p4back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p2nextActionPerformed(evt);
+                p4backActionPerformed(evt);
             }
         });
 
-        p2back.setText("Back");
-        p2back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p2backMouseClicked(evt);
-            }
-        });
-        p2back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p2backActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout p5Layout = new javax.swing.GroupLayout(p5);
-        p5.setLayout(p5Layout);
-        p5Layout.setHorizontalGroup(
-            p5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p5Layout.createSequentialGroup()
-                .addGap(0, 679, Short.MAX_VALUE)
-                .addComponent(p2back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(p2next, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
-            .addGroup(p5Layout.createSequentialGroup()
-                .addGroup(p5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(p5Layout.createSequentialGroup()
+        javax.swing.GroupLayout p4Layout = new javax.swing.GroupLayout(p4);
+        p4.setLayout(p4Layout);
+        p4Layout.setHorizontalGroup(
+            p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p4Layout.createSequentialGroup()
+                .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p4Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(p5Layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
-                        .addGroup(p5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(monday)
-                            .addComponent(workday)
-                            .addComponent(wednesday)
-                            .addComponent(thursday)
-                            .addComponent(friday)
-                            .addComponent(saturday)
-                            .addComponent(tuesday))))
-                .addContainerGap(688, Short.MAX_VALUE))
-        );
-        p5Layout.setVerticalGroup(
-            p5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p5Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel8)
-                .addGap(28, 28, 28)
-                .addComponent(workday)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(monday)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tuesday)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(wednesday)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(thursday)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(friday)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(saturday)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(p5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(p2next, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(p2back, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(96, 96, 96))
-        );
-
-        p6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        p6.setPreferredSize(new java.awt.Dimension(1090, 494));
-
-        Noworkday2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 7, 1));
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel9.setText("Number of Working Days Per Week");
-
-        p1next2.setText("Next");
-        p1next2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p1next2(evt);
-            }
-        });
-        p1next2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p1next2ActionPerformed(evt);
-            }
-        });
-
-        jButton8.setText("Back");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout p6Layout = new javax.swing.GroupLayout(p6);
-        p6.setLayout(p6Layout);
-        p6Layout.setHorizontalGroup(
-            p6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p6Layout.createSequentialGroup()
-                .addGroup(p6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(p6Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(p6Layout.createSequentialGroup()
-                        .addGap(472, 472, 472)
-                        .addComponent(Noworkday2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(510, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p6Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p4Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(timeslot2)
+                            .addComponent(timeslot))))
+                .addContainerGap(604, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p4back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(p1next2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(185, 185, 185))
         );
-        p6Layout.setVerticalGroup(
-            p6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p6Layout.createSequentialGroup()
+        p4Layout.setVerticalGroup(
+            p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p4Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addComponent(jLabel9)
-                .addGap(34, 34, 34)
-                .addComponent(Noworkday2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-                .addGroup(p6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(p1next2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(timeslot)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(timeslot2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p4back, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(96, 96, 96))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1090, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanel1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        pp1.setText("Number of Working Days Per Week");
+        pp1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pp1MouseClicked(evt);
+            }
+        });
+        pp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pp1ActionPerformed(evt);
+            }
+        });
+
+        pp2.setText("Working Days");
+        pp2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pp2MouseClicked(evt);
+            }
+        });
+        pp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pp2ActionPerformed(evt);
+            }
+        });
+
+        pp3.setText("Working Time Per Day");
+        pp3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pp3MouseClicked(evt);
+            }
+        });
+        pp3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pp3ActionPerformed(evt);
+            }
+        });
+
+        pp4.setText("Time Slot");
+        pp4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pp4MouseClicked(evt);
+            }
+        });
+        pp4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pp4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pp1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+            .addComponent(pp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pp4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(pp1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pp2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pp3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pp4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 1424, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void p1next(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p1next
+        // TODO add your handling code here:
+        if (evt.getSource()==p1next){
+            p1.setVisible(false);
+            p2.setVisible(true);
+            p3.setVisible(false);
+            p4.setVisible(false);
+        }
+    }//GEN-LAST:event_p1next
+
+    private void p1nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1nextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p1nextActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        //new SystemWorkingDays().setVisible(true);
+        //dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void workdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workdayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_workdayActionPerformed
+
+    private void mondayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mondayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mondayActionPerformed
+
+    private void tuesdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tuesdayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tuesdayActionPerformed
+
+    private void thursdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thursdayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_thursdayActionPerformed
+
+    private void fridayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fridayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fridayActionPerformed
+
+    private void p2nextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p2nextMouseClicked
+        // TODO add your handling code here:
+        if (evt.getSource()==p2next){
+            p1.setVisible(false);
+            p2.setVisible(false);
+            p3.setVisible(true);
+            p4.setVisible(false);
+        }
+    }//GEN-LAST:event_p2nextMouseClicked
+
+    private void p2nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2nextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p2nextActionPerformed
+
+    private void p2backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p2backMouseClicked
+        // TODO add your handling code here:
+        if (evt.getSource()==p2back){
+            p1.setVisible(true);
+            p2.setVisible(false);
+            p3.setVisible(false);
+            p4.setVisible(false);
+        }
+    }//GEN-LAST:event_p2backMouseClicked
+
+    private void p2backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2backActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p2backActionPerformed
+
+    private void p3nextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p3nextMouseClicked
+        // TODO add your handling code here:
+        if (evt.getSource()==p3next){
+            p1.setVisible(false);
+            p2.setVisible(false);
+            p3.setVisible(false);
+            p4.setVisible(true);
+        }
+    }//GEN-LAST:event_p3nextMouseClicked
+
+    private void p3nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p3nextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p3nextActionPerformed
+
+    private void p3backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p3backMouseClicked
+        // TODO add your handling code here:
+        if (evt.getSource()==p3back){
+            p1.setVisible(false);
+            p2.setVisible(true);
+            p3.setVisible(false);
+            p4.setVisible(false);
+        }
+    }//GEN-LAST:event_p3backMouseClicked
 
     private void timeslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeslotActionPerformed
         // TODO add your handling code here:
@@ -675,98 +796,6 @@ public class AddWorkingDays extends javax.swing.JFrame {
     private void p4backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p4backActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_p4backActionPerformed
-
-    private void p3nextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p3nextMouseClicked
-        // TODO add your handling code here:
-        if (evt.getSource()==p3next){
-            p1.setVisible(false);
-            p2.setVisible(false);
-            p3.setVisible(false);
-            p4.setVisible(true);
-        }
-    }//GEN-LAST:event_p3nextMouseClicked
-
-    private void p3nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p3nextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_p3nextActionPerformed
-
-    private void p3backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p3backMouseClicked
-        // TODO add your handling code here:
-        if (evt.getSource()==p3back){
-            p1.setVisible(false);
-            p2.setVisible(true);
-            p3.setVisible(false);
-            p4.setVisible(false);
-        }
-    }//GEN-LAST:event_p3backMouseClicked
-
-    private void workdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workdayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_workdayActionPerformed
-
-    private void mondayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mondayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mondayActionPerformed
-
-    private void tuesdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tuesdayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tuesdayActionPerformed
-
-    private void thursdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thursdayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_thursdayActionPerformed
-
-    private void fridayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fridayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fridayActionPerformed
-
-    private void p2nextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p2nextMouseClicked
-        // TODO add your handling code here:
-        if (evt.getSource()==p2next){
-            p1.setVisible(false);
-            p2.setVisible(false);
-            p3.setVisible(true);
-            p4.setVisible(false);
-        }
-    }//GEN-LAST:event_p2nextMouseClicked
-
-    private void p2nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2nextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_p2nextActionPerformed
-
-    private void p2backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p2backMouseClicked
-        // TODO add your handling code here:
-        if (evt.getSource()==p2back){
-            p1.setVisible(true);
-            p2.setVisible(false);
-            p3.setVisible(false);
-            p4.setVisible(false);
-        }
-    }//GEN-LAST:event_p2backMouseClicked
-
-    private void p2backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2backActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_p2backActionPerformed
-
-    private void p1next2(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p1next2
-        // TODO add your handling code here:
-        if (evt.getSource()==p1next){
-            p1.setVisible(false);
-            p2.setVisible(true);
-            p3.setVisible(false);
-            p4.setVisible(false);
-        }
-    }//GEN-LAST:event_p1next2
-
-    private void p1next2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1next2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_p1next2ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        new SystemWorkingDays().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void pp1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pp1MouseClicked
         if (evt.getSource()==pp1){
@@ -904,6 +933,10 @@ public class AddWorkingDays extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pp4ActionPerformed
 
+    private void jPanel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1AncestorAdded
+
     /**
      * @param args the command line arguments
      */
@@ -941,28 +974,20 @@ public class AddWorkingDays extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner Noworkday;
-    private javax.swing.JSpinner Noworkday1;
-    private javax.swing.JSpinner Noworkday2;
     private javax.swing.JButton Submit;
     private javax.swing.JCheckBox friday;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JCheckBox monday;
     private javax.swing.JPanel p1;
     private javax.swing.JButton p1next;
-    private javax.swing.JButton p1next1;
-    private javax.swing.JButton p1next2;
     private javax.swing.JPanel p2;
     private javax.swing.JButton p2back;
     private javax.swing.JButton p2next;
@@ -971,8 +996,6 @@ public class AddWorkingDays extends javax.swing.JFrame {
     private javax.swing.JButton p3next;
     private javax.swing.JPanel p4;
     private javax.swing.JButton p4back;
-    private javax.swing.JPanel p5;
-    private javax.swing.JPanel p6;
     private javax.swing.JButton pp1;
     private javax.swing.JButton pp2;
     private javax.swing.JButton pp3;
