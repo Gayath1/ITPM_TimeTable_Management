@@ -21,9 +21,9 @@ import javax.swing.JOptionPane;
  * @author Gayath
  */
 public class AddWorkingDays extends javax.swing.JFrame {
-    static final String DB_URL = "jdbc:mysql://sql6.freesqldatabase.com:3306/sql6401767";
-    static final String username = "sql6401767";
-    static final String password = "sCxTL8aivf";
+    static final String DB_URL = "jdbc:mysql://remotemysql.com:3306/QoQsk4BeEJ";
+    static final String username = "QoQsk4BeEJ";
+    static final String password = "r7p32rsm8e";
     /**
      * Creates new form AddWorkingDays
      */
@@ -75,6 +75,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
         timeslot2 = new javax.swing.JRadioButton();
         Submit = new javax.swing.JButton();
         p4back = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         pp1 = new javax.swing.JButton();
         pp2 = new javax.swing.JButton();
@@ -393,6 +394,13 @@ public class AddWorkingDays extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Close");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p4Layout = new javax.swing.GroupLayout(p4);
         p4.setLayout(p4Layout);
         p4Layout.setHorizontalGroup(
@@ -409,16 +417,23 @@ public class AddWorkingDays extends javax.swing.JFrame {
                             .addComponent(timeslot))))
                 .addContainerGap(604, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(p4back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
+                .addGap(0, 680, Short.MAX_VALUE)
+                .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p4Layout.createSequentialGroup()
+                        .addComponent(p4back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(185, 185, 185))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p4Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(36, 36, 36))))
         );
         p4Layout.setVerticalGroup(
             p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p4Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(20, 20, 20)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(timeslot)
@@ -950,6 +965,11 @@ public class AddWorkingDays extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1AncestorAdded
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new AddWorkingDays().setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -989,6 +1009,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
     private javax.swing.JSpinner Noworkday;
     private javax.swing.JButton Submit;
     private javax.swing.JCheckBox friday;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
