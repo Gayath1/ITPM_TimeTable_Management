@@ -5,12 +5,7 @@
  */
 package com.mycompany.itpm_timetable_management;
 
-import static com.mycompany.itpm_timetable_management.AddSession.DB_URL;
-import static com.mycompany.itpm_timetable_management.AddSession.password;
-import static com.mycompany.itpm_timetable_management.AddSession.username;
-import static com.mycompany.itpm_timetable_management.EditRooms.DB_URL;
-import static com.mycompany.itpm_timetable_management.EditRooms.password;
-import static com.mycompany.itpm_timetable_management.EditRooms.username;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -38,7 +33,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
     }
     
     Connection conn;
-    private void showDetails() throws SQLException{
+    private void showDetails() throws SQLException, ClassNotFoundException{
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL, username, password);
         String grp = (String)jComboBox1.getSelectedItem();
@@ -59,8 +54,6 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
        }else if("Session".equals(grp)){
        System.out.println("s");
        Statement stmt = null;
-       Class.forName("com.mysql.jdbc.Driver");
-       conn = DriverManager.getConnection(DB_URL, username, password);
        ResultSet rs = conn.createStatement().executeQuery("SELECT subcode,tags,groups from session"); 
        
        while(rs.next()){
@@ -72,8 +65,6 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
        }else if("Group".equals(grp)){
            System.out.println("g");
        Statement stmt = null;
-       Class.forName("com.mysql.jdbc.Driver");
-       conn = DriverManager.getConnection(DB_URL, username, password);
        ResultSet rs = conn.createStatement().executeQuery("SELECT id from groupids"); 
        
        while(rs.next()){
@@ -85,8 +76,6 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
        }else if("Sub-group".equals(grp)){
            System.out.println("sub");
         Statement stmt = null;
-       Class.forName("com.mysql.jdbc.Driver");
-       conn = DriverManager.getConnection(DB_URL, username, password);
        ResultSet rs = conn.createStatement().executeQuery("SELECT id from subgroupids");
 
        while(rs.next()){
@@ -454,7 +443,13 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         jComboBox2.removeAllItems();
-        showDetails();
+        try {
+            showDetails();
+        } catch (SQLException ex) {
+            Logger.getLogger(AddNotAvailableTime.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddNotAvailableTime.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
