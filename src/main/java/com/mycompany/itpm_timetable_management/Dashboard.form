@@ -99,7 +99,7 @@
                       <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton6" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="66" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButton8" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton7" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -122,7 +122,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\Location dashboard.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\Location dashboard.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -138,7 +138,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\Statistics dashboard.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\Statistics dashboard.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -154,7 +154,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\Sessions dashboard.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\Sessions dashboard.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -170,7 +170,7 @@
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\TimeTable.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\TimeTable.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -186,7 +186,7 @@
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\Student dashboard.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\Student dashboard.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -202,7 +202,7 @@
         <Component class="javax.swing.JButton" name="jButton6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\tags.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\tags.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -218,7 +218,7 @@
         <Component class="javax.swing.JButton" name="jButton7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\lecturers dashboard.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\lecturers dashboard.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -234,7 +234,7 @@
         <Component class="javax.swing.JButton" name="jButton8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\subject.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\subject.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -250,7 +250,7 @@
         <Component class="javax.swing.JButton" name="jButton9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\my\Gayath\ITPM_TimeTable_Management\src\main\java\Imagesrc\days hours.png"/>
+              <Image iconType="2" name="I:\ITPM_TimeTable_Management\src\main\java\Imagesrc\days hours.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

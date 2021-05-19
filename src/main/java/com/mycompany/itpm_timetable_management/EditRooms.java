@@ -107,6 +107,11 @@ public class EditRooms extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1400, 749));
 
         jComboBox1.setFont(new java.awt.Font("Nexa Bold", 0, 14)); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Nexa Bold", 0, 36)); // NOI18N
         jLabel1.setText("Select Room");
@@ -140,7 +145,6 @@ public class EditRooms extends javax.swing.JFrame {
 
         jComboBox3.setFont(new java.awt.Font("Nexa Bold", 0, 14)); // NOI18N
 
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\update rooms.png")); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -151,7 +155,6 @@ public class EditRooms extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\close.png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -288,6 +291,10 @@ public class EditRooms extends javax.swing.JFrame {
             Logger.getLogger(EditRooms.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

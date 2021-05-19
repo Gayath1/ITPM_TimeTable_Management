@@ -54,7 +54,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Nexa Bold", 0, 48)); // NOI18N
         jLabel1.setText("Time Table Management System");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Location dashboard.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Location dashboard.png")); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -65,7 +65,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Statistics dashboard.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Statistics dashboard.png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -76,7 +76,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Sessions dashboard.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Sessions dashboard.png")); // NOI18N
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
@@ -87,7 +87,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\TimeTable.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\TimeTable.png")); // NOI18N
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
@@ -98,7 +98,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Student dashboard.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\Student dashboard.png")); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
@@ -109,7 +109,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\tags.png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\tags.png")); // NOI18N
         jButton6.setBorder(null);
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
@@ -120,7 +120,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\lecturers dashboard.png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\lecturers dashboard.png")); // NOI18N
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
@@ -131,7 +131,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\subject.png")); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\subject.png")); // NOI18N
         jButton8.setBorder(null);
         jButton8.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
@@ -142,7 +142,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setIcon(new javax.swing.ImageIcon("E:\\my\\Gayath\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\days hours.png")); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon("I:\\ITPM_TimeTable_Management\\src\\main\\java\\Imagesrc\\days hours.png")); // NOI18N
         jButton9.setBorder(null);
         jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
@@ -198,7 +198,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -255,10 +255,15 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        new ManageLectures().setVisible(true);
+        setVisible(false);
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        new ManageSubjects().setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed

@@ -435,6 +435,8 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
             }catch (ArithmeticException ex) {
                JOptionPane.showMessageDialog(this, "Start time should be less than end time","Error",JOptionPane.ERROR_MESSAGE);
                
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddNotAvailableTime.class.getName()).log(Level.SEVERE, null, ex);
             }
           
     }                               
