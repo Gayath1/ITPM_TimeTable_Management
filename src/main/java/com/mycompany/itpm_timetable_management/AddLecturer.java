@@ -242,7 +242,7 @@ public class AddLecturer extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.jdbc.Driver");
            conn = DriverManager.getConnection(DB_URL, username, password);
-           insert = conn.prepareStatement("INSERT INTO lecturers(lecturer_name,lecturer_code,lecfac,lecdep,leccenter,building,leclevel,lecrank)VALUES(?,?,?,?,?,?,?,?)");
+           insert = conn.prepareStatement("INSERT INTO lecturers(Lecturer_name,Lecturer_code,lecfac,lecdep,leccenter,building,leclevel,lecrank)VALUES(?,?,?,?,?,?,?,?)");
             
             // insert data to relavant ? marks
             insert.setString(1, lecName);
