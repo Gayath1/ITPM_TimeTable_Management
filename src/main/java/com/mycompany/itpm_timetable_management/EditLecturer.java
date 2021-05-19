@@ -49,7 +49,7 @@ public class EditLecturer extends javax.swing.JFrame {
             conn = DriverManager.getConnection(DB_URL, username, password);
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM lecturers");              
             while(rs.next()){     
-                String name = rs.getString("lecturer_code");
+                String name = rs.getString("Lecturer_code");
                 jComboBox1.addItem(name);;
             }
             } catch (ClassNotFoundException ex) {
@@ -290,7 +290,7 @@ public class EditLecturer extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, username, password);
             if (JOptionPane.showConfirmDialog(this,"This Will Update Room Details! Proceed?")==0){
-                editStmt = conn.prepareStatement("UPDATE lecturers SET Lecturer_name = ?, Lecturer_code = ?, lecfac = ?, lecdep = ?,leccenter = ?,building = ?,leclevel = ?,lecrank = ? WHERE lecturer_code = ?;");                     
+                editStmt = conn.prepareStatement("UPDATE lecturers SET Lecturer_name = ?, Lecturer_code = ?, lecfac = ?, lecdep = ?,leccenter = ?,building = ?,Lecturer_level = ?,lecrank = ? WHERE lecturer_code = ?;");                     
                 editStmt.setString(1, lecName);
                 editStmt.setString(2, EmpID);
                 editStmt.setString(3, faculty);

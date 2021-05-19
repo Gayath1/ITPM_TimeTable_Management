@@ -131,8 +131,8 @@ public class ViewSubject extends javax.swing.JFrame {
             
                 Vector v1 = new Vector();
                 for(int i=1; i<=count; i++){
-                    v1.add(rs.getString("subject_name"));
-                    v1.add(rs.getString("subject_code"));
+                    v1.add(rs.getString("name"));
+                    v1.add(rs.getString("id"));
                     v1.add(rs.getString("Yr"));
                     v1.add(rs.getString("sem"));
                 }

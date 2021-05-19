@@ -129,10 +129,10 @@ public class ViewLecturer extends javax.swing.JFrame {
             
                 Vector v1 = new Vector();
                 for(int i=1; i<=count; i++){
-                    v1.add(rs.getString("lecturer_name"));
-                    v1.add(rs.getString("lecturer_code"));
+                    v1.add(rs.getString("Lecturer_name"));
+                    v1.add(rs.getString("Lecturer_code"));
                     v1.add(rs.getString("lecfac"));
-                    v1.add(rs.getString("leclevel"));
+                    v1.add(rs.getString("Lecturer_level"));
                 }
                 df.addRow(v1);
             }

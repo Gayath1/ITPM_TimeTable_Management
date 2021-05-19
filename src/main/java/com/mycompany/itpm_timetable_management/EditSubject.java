@@ -46,7 +46,7 @@ public class EditSubject extends javax.swing.JFrame {
             conn = DriverManager.getConnection(DB_URL, username, password);
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM subjects");              
             while(rs.next()){     
-                String name = rs.getString("subject_code");
+                String name = rs.getString("id");
                 jComboBox1.addItem(name);;
             }
             } catch (ClassNotFoundException ex) {
@@ -223,7 +223,7 @@ public class EditSubject extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, username, password);
             if (JOptionPane.showConfirmDialog(this,"This Will Update Room Details! Proceed?")==0){
-                editStmt = conn.prepareStatement("UPDATE subjects SET Yr = ?, sem = ?, subject_name = ?, subject_code = ?,lechr = ?,tuthr = ?,labhr = ?,evohr = ? WHERE subject_code = ?;");                     
+                editStmt = conn.prepareStatement("UPDATE subjects SET Yr = ?, sem = ?, name = ?, id = ?,lechr = ?,tuthr = ?,labhr = ?,evohr = ? WHERE subject_code = ?;");                     
                 editStmt.setString(1, year);
                 editStmt.setString(2, semester);
                 editStmt.setString(3, sname);

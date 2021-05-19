@@ -47,7 +47,7 @@ public class DeleteLecturer extends javax.swing.JFrame {
             conn = DriverManager.getConnection(DB_URL, username, password);
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM lecturers");              
             while(rs.next()){     
-                String name = rs.getString("lecturer_code");
+                String name = rs.getString("Lecturer_code");
                 jComboBox1.addItem(name);;
             }
             
@@ -139,7 +139,7 @@ public class DeleteLecturer extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, username, password);
             if (JOptionPane.showConfirmDialog(this,"This Will Delete Selected Room! Proceed?")==0){
-                deleteStmt = conn.prepareStatement("DELETE FROM lecturers WHERE lecturer_code = ?;");         
+                deleteStmt = conn.prepareStatement("DELETE FROM lecturers WHERE Lecturer_code = ?;");         
                 deleteStmt.setString(1, rcode);
                 if(rcode.isEmpty()){
                 JOptionPane.showMessageDialog(this, "All Fields Required!");
