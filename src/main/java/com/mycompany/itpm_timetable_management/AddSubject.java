@@ -225,7 +225,7 @@ public class AddSubject extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.jdbc.Driver");
            conn = DriverManager.getConnection(DB_URL, username, password);
-           insert = conn.prepareStatement("INSERT INTO subjects(Yr,Sem,name,id,lechr,tuthr,labhr,evohr)VALUES(?,?,?,?,?,?,?,?)");
+           insert = conn.prepareStatement("INSERT INTO subject(Yr,Sem,name,id,lechr,tuthr,labhr,evohr)VALUES(?,?,?,?,?,?,?,?)");
             
             // insert data to relavant ? marks
             insert.setString(1, year);
