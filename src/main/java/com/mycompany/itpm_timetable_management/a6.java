@@ -22,23 +22,15 @@ public class a6 extends javax.swing.JFrame {
     public a6() {
         initComponents();
         try {
-            ResultSet r=dbms.search("SELECT * FROM stu_grp");
+            ResultSet r=dbms.search("SELECT * FROM groupids");
             while(r.next()){
                 String id=r.getString("id");
-                String a=r.getString("academic");
-                String b=r.getString("pro");
-                String c=r.getString("grpnum");
-                String d=r.getString("subnum");
-                String e=r.getString("grpid");
-                String f=r.getString("subgid");
+                String a=r.getString("code");
+          
                 Vector v=new Vector();
                 v.add(id);
                 v.add(a);
-                v.add(b);
-                v.add(c);
-                v.add(d);
-                v.add(e);
-                v.add(f);
+          
                 TableModel tm=jTable1.getModel();
                 DefaultTableModel dtm=(DefaultTableModel)tm;
                 dtm.addRow(v);
@@ -209,6 +201,11 @@ public class a6 extends javax.swing.JFrame {
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 329, 100, 23));
 
         jTextField8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 329, 200, -1));
 
         jButton22.setBackground(new java.awt.Color(102, 102, 102));
@@ -347,7 +344,7 @@ public class a6 extends javax.swing.JFrame {
             Object o = jTable1.getValueAt(r, 0);
             String a = String.valueOf(o);
             try {
-                dbms.iud("DELETE FROM stu_grp WHERE `id`='" + a + "'");
+                dbms.iud("DELETE FROM groupids WHERE `id`='" + a + "'");
                 TableModel tm = jTable1.getModel();
                 DefaultTableModel dtm = (DefaultTableModel) tm;
                 dtm.removeRow(r);
@@ -362,12 +359,8 @@ public class a6 extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             String id = jTextField8.getText();
-            dbms.iud("UPDATE stu_grp SET academic = '" + jTextField2.getText() + "' WHERE `id` = '"+ id +"'");
-            dbms.iud("UPDATE stu_grp SET pro = '" + String.valueOf(jComboBox1.getSelectedItem()) + "' WHERE `id` = '"+ id +"'");
-            dbms.iud("UPDATE stu_grp SET grpnum = '" + jTextField4.getText() + "' WHERE `id` = '"+ id +"'");
-            dbms.iud("UPDATE stu_grp SET subnum = '" + jTextField5.getText() + "' WHERE `id` = '"+ id +"'");
-            dbms.iud("UPDATE stu_grp SET grpid='" + jTextField6.getText() + "' WHERE `id` = '"+ id +"'");
-            dbms.iud("UPDATE stu_grp SET subgid = '" + jTextField7.getText() + "' WHERE `id` = '"+ id +"'");
+            dbms.iud("UPDATE groupids SET code = '" + jTextField2.getText() + "' WHERE `id` = '"+ id +"'");
+           
             JOptionPane.showMessageDialog(this, "Updated", "Successfully!", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             e.printStackTrace();
@@ -384,6 +377,10 @@ public class a6 extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
 
     /**
      * @param args the command line arguments

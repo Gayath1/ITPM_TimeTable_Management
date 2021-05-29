@@ -230,7 +230,7 @@ public class a7 extends javax.swing.JFrame {
         String a=jTextField3.getText();
         String a1=jTextField4.getText();
         String a2=String.valueOf(jComboBox1.getSelectedItem());    
-        dbms.iud("INSERT INTO tags (`tag`,`tagcode`,`tagrel`) VALUES ('"+a+"','"+a1+"','"+a2+"')");
+        dbms.iud("INSERT INTO tags (`tag`,`id`) VALUES ('"+a+"','"+a1+"')");
         JOptionPane.showMessageDialog(this, "ADDED", "Successfully", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
         e.printStackTrace();

@@ -265,7 +265,7 @@ public class a5 extends javax.swing.JFrame {
         String a3=jTextField5.getText();
         String a4=jTextField6.getText();
         String a5=jTextField7.getText();    
-        dbms.iud("INSERT INTO stu_grp (`academic`,`pro`,`grpnum`,`subnum`,`grpid`,`subgid`) VALUES ('"+a+"','"+a1+"','"+a2+"','"+a3+"','"+a4+"','"+a5+"')");
+        dbms.iud("INSERT INTO groupids (`code`) VALUES ('"+a+"')");
         JOptionPane.showMessageDialog(this, "ADDED", "Successfully", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
         e.printStackTrace();

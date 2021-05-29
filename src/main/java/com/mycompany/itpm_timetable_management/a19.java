@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -61,6 +62,7 @@ public class a19 extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,7 +97,7 @@ public class a19 extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 458, 40));
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 460, 40));
 
         jComboBox3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -103,17 +105,17 @@ public class a19 extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 454, 40));
+        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 460, 40));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Session 1");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 160, 440, 28));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 210, 440, 28));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Session 2");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 210, 460, 28));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 270, 460, 28));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -212,11 +214,17 @@ public class a19 extends javax.swing.JFrame {
         });
         jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 250, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Session type");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,9 +238,10 @@ public class a19 extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         String a=String.valueOf(jComboBox1.getSelectedItem());
-        String a1=jLabel5.getText();
-        String a2=jLabel6.getText();
-        dbms.iud("INSERT INTO addses (`type`,`session`,`addsession`) VALUES ('"+a+"','"+a1+"','"+a2+"')");
+        String a1=String.valueOf(jComboBox2.getSelectedItem());
+        String a2=String.valueOf(jComboBox3.getSelectedItem());
+        dbms.iud("INSERT INTO consecutive_session (`type`,`session`,`addsession`) VALUES ('"+a+"','"+a1+"','"+a2+"')");
+        JOptionPane.showMessageDialog(this, "Record Added");  
         } catch (Exception e) {
         e.printStackTrace();
         }
@@ -363,6 +372,7 @@ public class a19 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -5,6 +5,9 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.AddReservedLocation.DB_URL;
+import static com.mycompany.itpm_timetable_management.AddReservedLocation.password;
+import static com.mycompany.itpm_timetable_management.AddReservedLocation.username;
 import static com.mycompany.itpm_timetable_management.EditNATA.DB_URL;
 import static com.mycompany.itpm_timetable_management.EditNATA.password;
 import static com.mycompany.itpm_timetable_management.EditNATA.username;
@@ -32,6 +35,7 @@ public class EditLocation extends javax.swing.JFrame {
     public EditLocation() {
         initComponents();
         currentLocation();
+        currentroom();
     }
 
      Connection conn;
@@ -41,9 +45,9 @@ public class EditLocation extends javax.swing.JFrame {
         try {    
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, username, password);
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM location");              
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM AddReservedLocation");              
             while(rs.next()){     
-                String name = rs.getString("locationid");
+                String name = rs.getString("id");
                 jComboBox9.addItem(name);
             }
             
@@ -51,6 +55,24 @@ public class EditLocation extends javax.swing.JFrame {
             Logger.getLogger(EditLocation.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(EditLocation.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
+    private void currentroom(){
+           
+        try {    
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            ResultSet rs = conn.createStatement().executeQuery("SELECT room_name FROM rooms");              
+            while(rs.next()){     
+                String name = rs.getString("room_name");
+                jComboBox5.addItem(name);;
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LocationTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(LocationTimeTable.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
     /**
@@ -105,6 +127,7 @@ public class EditLocation extends javax.swing.JFrame {
             }
         });
 
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sutarday", "Sunday" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -189,7 +212,7 @@ public class EditLocation extends javax.swing.JFrame {
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(jButton1)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,12 +254,14 @@ public class EditLocation extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, username, password);
             if (JOptionPane.showConfirmDialog(this,"This Will Update location Details! Proceed?")==0){
-                editStmt = conn.prepareStatement("UPDATE AddLocation  SET locationid = ?, Sroom = ?, Sday = ?, Starttime = ?, Endtime = ? WHERE room_code = ?;");                     
-                editStmt.setString(1, location);
-                editStmt.setString(2, room);
-                editStmt.setString(3, day);
-                editStmt.setString(4, startTime);
-                editStmt.setString(5, endTime);
+                editStmt = conn.prepareStatement("UPDATE AddReservedLocation  SET  Sroom = ?, Sday = ?, Starttime = ?, Endtime = ? WHERE id = ?;");  
+               
+                
+                editStmt.setString(1, room);
+                editStmt.setString(2, day);
+                editStmt.setString(3, startTime);
+                editStmt.setString(4, endTime);
+                editStmt.setString(5, location);
                 
                 if(location.isEmpty() || room.isEmpty() || day.isEmpty() || startTime.isEmpty() || endTime.isEmpty()){
                 JOptionPane.showMessageDialog(this, "All Fields Required!");

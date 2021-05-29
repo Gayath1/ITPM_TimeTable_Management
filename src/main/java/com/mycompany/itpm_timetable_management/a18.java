@@ -11,6 +11,7 @@ import com.mycompany.itpm_timetable_management.a7;
 import com.mycompany.itpm_timetable_management.a8;
 import com.mycompany.itpm_timetable_management.dbms;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.Vector;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -65,7 +66,7 @@ public class a18 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Lecture", "Tag", "Group", "Subject ", "Students", "Duration"
+                "ID", "Subject", "Lecture", "Session", "Group ", "Students", "Duration"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -412,21 +413,20 @@ public class a18 extends javax.swing.JFrame {
         TableModel tm2=jTable1.getModel();
         DefaultTableModel dtm2=(DefaultTableModel)tm2;
         dtm2.setRowCount(0);
+        
         try {
             String a="consecutive";
-            ResultSet r=dbms.search("SELECT * FROM addses WHERE type = '"+a+"' ");
+            ResultSet r=dbms.search("SELECT * FROM consecutive_session");
+         
             if(r.next()){
-                String b=r.getString("session");
-                String b1=r.getString("addsession");
-                ResultSet r1=dbms.search("SELECT * FROM session WHERE id = '"+b+"' ");
-                r1.next();
+                
                 String id=r.getString("id");
-                String a10=r.getString("st");
-                String b10=r.getString("selec_lec");
-                String c=r.getString("sg");
-                String d=r.getString("ss");
-                String e=r.getString("stu");
-                String f=r.getString("d");
+                String a10=r.getString("subject");
+                String b10=r.getString("lecturers");
+                String c=r.getString("tags");
+                String d=r.getString("groups");
+                String e=r.getString("stdcount");
+                String f=r.getString("hours");
                 Vector v=new Vector();
                 v.add(id);
                 v.add(a10);
@@ -438,26 +438,7 @@ public class a18 extends javax.swing.JFrame {
                 TableModel tm=jTable1.getModel();
                 DefaultTableModel dtm=(DefaultTableModel)tm;
                 dtm.addRow(v);
-                ResultSet r2=dbms.search("SELECT * FROM session WHERE id = '"+b1+"' ");
-                r2.next();
-                String id1=r.getString("id");
-                String a11=r.getString("st");
-                String b11=r.getString("selec_lec");
-                String c1=r.getString("sg");
-                String d1=r.getString("ss");
-                String e1=r.getString("stu");
-                String f1=r.getString("d");
-                Vector v1=new Vector();
-                v1.add(id1);
-                v1.add(a11);
-                v1.add(b11);
-                v1.add(c1);
-                v1.add(d1);
-                v1.add(e1);
-                v1.add(f1);
-                TableModel tm1=jTable1.getModel();
-                DefaultTableModel dtm1=(DefaultTableModel)tm1;
-                dtm1.addRow(v1);
+               
             }
         } catch (Exception e) {
             e.printStackTrace();

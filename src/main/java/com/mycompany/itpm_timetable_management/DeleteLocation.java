@@ -5,6 +5,9 @@
  */
 package com.mycompany.itpm_timetable_management;
 
+import static com.mycompany.itpm_timetable_management.DeleteBuldings.DB_URL;
+import static com.mycompany.itpm_timetable_management.DeleteBuldings.password;
+import static com.mycompany.itpm_timetable_management.DeleteBuldings.username;
 import static com.mycompany.itpm_timetable_management.DeleteNATA.DB_URL;
 import static com.mycompany.itpm_timetable_management.DeleteNATA.password;
 import static com.mycompany.itpm_timetable_management.DeleteNATA.username;
@@ -165,6 +168,28 @@ public class DeleteLocation extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+         PreparedStatement deleteStmt;
+        String bcode = jComboBox2.getSelectedItem().toString();
+         try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, username, password);
+            if (JOptionPane.showConfirmDialog(this,"This Will Delete Selected not avaliable location! Proceed?")==0){
+                deleteStmt = conn.prepareStatement("DELETE FROM location WHERE locationid = ?;");         
+                deleteStmt.setString(1, bcode);
+                if(bcode.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");
+            }else{
+                deleteStmt.execute();
+                }
+                JOptionPane.showMessageDialog(this, "location Deleted");
+            }else{
+                JOptionPane.showMessageDialog(this, "Aborted!");                
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(DeleteBuldings.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

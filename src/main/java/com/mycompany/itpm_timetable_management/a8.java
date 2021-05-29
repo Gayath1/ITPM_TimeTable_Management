@@ -26,13 +26,11 @@ public class a8 extends javax.swing.JFrame {
             while(r.next()){
                 String id=r.getString("id");
                 String a=r.getString("tag");
-                String b=r.getString("tagcode");
-                String c=r.getString("tagrel");
+                
                 Vector v=new Vector();
                 v.add(id);
                 v.add(a);
-                v.add(b);
-                v.add(c);
+                
                 TableModel tm=jTable1.getModel();
                 DefaultTableModel dtm=(DefaultTableModel)tm;
                 dtm.addRow(v);
