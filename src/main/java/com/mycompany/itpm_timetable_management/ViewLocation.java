@@ -52,7 +52,7 @@ public class ViewLocation extends javax.swing.JFrame {
                 Class.forName("com.mysql.jdbc.Driver");
                 conn = DriverManager.getConnection(DB_URL, username, password);
 
-                show = conn.prepareStatement("select * from location");
+                show = conn.prepareStatement("select * from AddReservedLocation");
                 ResultSet rs = show.executeQuery();
                 ResultSetMetaData Rss = rs.getMetaData();
                 c=Rss.getColumnCount();
